@@ -37,6 +37,8 @@ on:
 # Sets permissions of the GITHUB_TOKEN
 permissions:
   contents: write
+  pages: write
+  id-token: write
 
 # Allow only one concurrent deployment
 concurrency:
@@ -46,6 +48,9 @@ concurrency:
 jobs:
   sync-build-deploy:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
       - name: Checkout repository
@@ -111,15 +116,14 @@ jobs:
       - name: Build with Quartz
         run: npx quartz build
 
-      - name: Deploy to gh-pages
-        run: |
-          cd public
-          git init
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add -A
-          git commit -m "Deploy documentation - $(date +'%Y-%m-%d %H:%M:%S')"
-          git push -f https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:gh-pages
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: public
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
 
       - name: Report status
         if: success()
