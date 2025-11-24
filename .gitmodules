@@ -1,0 +1,4 @@
+[submodule "content/projects/fusabi"]
+	path = content/projects/fusabi
+	url = https://github.com/fusabi-lang/fusabi.git
+	sparse-checkout = docs/*
