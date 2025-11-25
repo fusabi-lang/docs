@@ -20,7 +20,7 @@ Use the sidebar to browse project documentation, or use the search feature to fi
 
 This documentation hub automatically aggregates content from all public fusabi-lang repositories. Each project maintains its own documentation in its respective repository, and changes are synchronized daily.
 
-**Last Updated**: 2025-11-24 02:39:57
+**Last Updated**: 2025-11-25 03:13:45
 
 ---
 
