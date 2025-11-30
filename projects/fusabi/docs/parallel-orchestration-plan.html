@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr"><head><title>parallel-orchestration-plan</title><meta charset="utf-8"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted Grotesk:wght@400;700&amp;family=Source Sans Pro:ital,wght@0,400;0,600;1,400;1,600&amp;family=IBM Plex Mono:wght@400;600&amp;display=swap"/><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin="anonymous"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="og:site_name" content="Fusabi Lang Documentation"/><meta property="og:title" content="parallel-orchestration-plan"/><meta property="og:type" content="website"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="parallel-orchestration-plan"/><meta name="twitter:description" content="Fusabi Parallel Orchestration Plan 🚀 Date: November 20, 2025 Status: Phase 3 Completion Sprint Methodology: Parallel Agent Execution with Git Hygiene Executive Summary Based on comprehensive analysis of the Fusabi codebase: Phase 1-2: ✅ Complete (1,301 passing tests) Phase 3: ~60% complete (records..."/><meta property="og:description" content="Fusabi Parallel Orchestration Plan 🚀 Date: November 20, 2025 Status: Phase 3 Completion Sprint Methodology: Parallel Agent Execution with Git Hygiene Executive Summary Based on comprehensive analysis of the Fusabi codebase: Phase 1-2: ✅ Complete (1,301 passing tests) Phase 3: ~60% complete (records..."/><meta property="og:image:alt" content="Fusabi Parallel Orchestration Plan 🚀 Date: November 20, 2025 Status: Phase 3 Completion Sprint Methodology: Parallel Agent Execution with Git Hygiene Executive Summary Based on comprehensive analysis of the Fusabi codebase: Phase 1-2: ✅ Complete (1,301 passing tests) Phase 3: ~60% complete (records..."/><meta property="twitter:domain" content="fusabi-lang.github.io/docs"/><meta property="og:url" content="https://fusabi-lang.github.io/docs/projects/fusabi/docs/parallel-orchestration-plan"/><meta property="twitter:url" content="https://fusabi-lang.github.io/docs/projects/fusabi/docs/parallel-orchestration-plan"/><link rel="icon" href="../../../static/icon.png"/><meta name="description" content="Fusabi Parallel Orchestration Plan 🚀 Date: November 20, 2025 Status: Phase 3 Completion Sprint Methodology: Parallel Agent Execution with Git Hygiene Executive Summary Based on comprehensive analysis of the Fusabi codebase: Phase 1-2: ✅ Complete (1,301 passing tests) Phase 3: ~60% complete (records..."/><meta name="generator" content="Quartz"/><link href="../../../index.css" rel="stylesheet" type="text/css" spa-preserve/><style>.expand-button {
+  position: absolute;
+  display: flex;
+  float: right;
+  padding: 0.4rem;
+  margin: 0.3rem;
+  right: 0;
+  color: var(--gray);
+  border-color: var(--dark);
+  background-color: var(--light);
+  border: 1px solid;
+  border-radius: 5px;
+  opacity: 0;
+  transition: 0.2s;
+}
+.expand-button > svg {
+  fill: var(--light);
+  filter: contrast(0.3);
+}
+.expand-button:hover {
+  cursor: pointer;
+  border-color: var(--secondary);
+}
+.expand-button:focus {
+  outline: 0;
+}
+
+pre:hover > .expand-button {
+  opacity: 1;
+  transition: 0.2s;
+}
+
+#mermaid-container {
+  position: fixed;
+  contain: layout;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: none;
+  backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.5);
+}
+#mermaid-container.active {
+  display: inline-block;
+}
+#mermaid-container > #mermaid-space {
+  border: 1px solid var(--lightgray);
+  background-color: var(--light);
+  border-radius: 5px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 80vh;
+  width: 80vw;
+  overflow: hidden;
+}
+#mermaid-container > #mermaid-space > .mermaid-content {
+  padding: 2rem;
+  position: relative;
+  transform-origin: 0 0;
+  transition: transform 0.1s ease;
+  overflow: visible;
+  min-height: 200px;
+  min-width: 200px;
+}
+#mermaid-container > #mermaid-space > .mermaid-content pre {
+  margin: 0;
+  border: none;
+}
+#mermaid-container > #mermaid-space > .mermaid-content svg {
+  max-width: none;
+  height: auto;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  background: var(--light);
+  border: 1px solid var(--lightgray);
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid var(--lightgray);
+  background: var(--light);
+  color: var(--dark);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: var(--bodyFont);
+  transition: all 0.2s ease;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:hover {
+  background: var(--lightgray);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:active {
+  transform: translateY(1px);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:nth-child(2) {
+  width: auto;
+  padding: 0 12px;
+  font-size: 14px;
+}
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VSb290IjoiL2hvbWUvcnVubmVyL3dvcmsvZG9jcy9kb2NzL3F1YXJ0ei9jb21wb25lbnRzL3N0eWxlcyIsInNvdXJjZXMiOlsibWVybWFpZC5pbmxpbmUuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7RUFDQTs7QUFHRjtFQUNFO0VBQ0E7O0FBR0Y7RUFDRTs7O0FBS0Y7RUFDRTtFQUNBOzs7QUFJSjtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTs7QUFHRjtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBOztBQUdGO0VBQ0U7RUFDQTs7QUFJSjtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7O0FBR0Y7RUFDRTs7QUFJRjtFQUNFO0VBQ0E7RUFDQSIsInNvdXJjZXNDb250ZW50IjpbIi5leHBhbmQtYnV0dG9uIHtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbG9hdDogcmlnaHQ7XG4gIHBhZGRpbmc6IDAuNHJlbTtcbiAgbWFyZ2luOiAwLjNyZW07XG4gIHJpZ2h0OiAwOyAvLyBOT1RFOiByaWdodCB3aWxsIGJlIHNldCBpbiBtZXJtYWlkLmlubGluZS50c1xuICBjb2xvcjogdmFyKC0tZ3JheSk7XG4gIGJvcmRlci1jb2xvcjogdmFyKC0tZGFyayk7XG4gIGJhY2tncm91bmQtY29sb3I6IHZhcigtLWxpZ2h0KTtcbiAgYm9yZGVyOiAxcHggc29saWQ7XG4gIGJvcmRlci1yYWRpdXM6IDVweDtcbiAgb3BhY2l0eTogMDtcbiAgdHJhbnNpdGlvbjogMC4ycztcblxuICAmID4gc3ZnIHtcbiAgICBmaWxsOiB2YXIoLS1saWdodCk7XG4gICAgZmlsdGVyOiBjb250cmFzdCgwLjMpO1xuICB9XG5cbiAgJjpob3ZlciB7XG4gICAgY3Vyc29yOiBwb2ludGVyO1xuICAgIGJvcmRlci1jb2xvcjogdmFyKC0tc2Vjb25kYXJ5KTtcbiAgfVxuXG4gICY6Zm9jdXMge1xuICAgIG91dGxpbmU6IDA7XG4gIH1cbn1cblxucHJlIHtcbiAgJjpob3ZlciA+IC5leHBhbmQtYnV0dG9uIHtcbiAgICBvcGFjaXR5OiAxO1xuICAgIHRyYW5zaXRpb246IDAuMnM7XG4gIH1cbn1cblxuI21lcm1haWQtY29udGFpbmVyIHtcbiAgcG9zaXRpb246IGZpeGVkO1xuICBjb250YWluOiBsYXlvdXQ7XG4gIHotaW5kZXg6IDk5OTtcbiAgbGVmdDogMDtcbiAgdG9wOiAwO1xuICB3aWR0aDogMTAwdnc7XG4gIGhlaWdodDogMTAwdmg7XG4gIG92ZXJmbG93OiBoaWRkZW47XG4gIGRpc3BsYXk6IG5vbmU7XG4gIGJhY2tkcm9wLWZpbHRlcjogYmx1cig0cHgpO1xuICBiYWNrZ3JvdW5kOiByZ2JhKDAsIDAsIDAsIDAuNSk7XG5cbiAgJi5hY3RpdmUge1xuICAgIGRpc3BsYXk6IGlubGluZS1ibG9jaztcbiAgfVxuXG4gICYgPiAjbWVybWFpZC1zcGFjZSB7XG4gICAgYm9yZGVyOiAxcHggc29saWQgdmFyKC0tbGlnaHRncmF5KTtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1saWdodCk7XG4gICAgYm9yZGVyLXJhZGl1czogNXB4O1xuICAgIHBvc2l0aW9uOiBmaXhlZDtcbiAgICB0b3A6IDUwJTtcbiAgICBsZWZ0OiA1MCU7XG4gICAgdHJhbnNmb3JtOiB0cmFuc2xhdGUoLTUwJSwgLTUwJSk7XG4gICAgaGVpZ2h0OiA4MHZoO1xuICAgIHdpZHRoOiA4MHZ3O1xuICAgIG92ZXJmbG93OiBoaWRkZW47XG5cbiAgICAmID4gLm1lcm1haWQtY29udGVudCB7XG4gICAgICBwYWRkaW5nOiAycmVtO1xuICAgICAgcG9zaXRpb246IHJlbGF0aXZlO1xuICAgICAgdHJhbnNmb3JtLW9yaWdpbjogMCAwO1xuICAgICAgdHJhbnNpdGlvbjogdHJhbnNmb3JtIDAuMXMgZWFzZTtcbiAgICAgIG92ZXJmbG93OiB2aXNpYmxlO1xuICAgICAgbWluLWhlaWdodDogMjAwcHg7XG4gICAgICBtaW4td2lkdGg6IDIwMHB4O1xuXG4gICAgICBwcmUge1xuICAgICAgICBtYXJnaW46IDA7XG4gICAgICAgIGJvcmRlcjogbm9uZTtcbiAgICAgIH1cblxuICAgICAgc3ZnIHtcbiAgICAgICAgbWF4LXdpZHRoOiBub25lO1xuICAgICAgICBoZWlnaHQ6IGF1dG87XG4gICAgICB9XG4gICAgfVxuXG4gICAgJiA+IC5tZXJtYWlkLWNvbnRyb2xzIHtcbiAgICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgICAgIGJvdHRvbTogMjBweDtcbiAgICAgIHJpZ2h0OiAyMHB4O1xuICAgICAgZGlzcGxheTogZmxleDtcbiAgICAgIGdhcDogOHB4O1xuICAgICAgcGFkZGluZzogOHB4O1xuICAgICAgYmFja2dyb3VuZDogdmFyKC0tbGlnaHQpO1xuICAgICAgYm9yZGVyOiAxcHggc29saWQgdmFyKC0tbGlnaHRncmF5KTtcbiAgICAgIGJvcmRlci1yYWRpdXM6IDZweDtcbiAgICAgIGJveC1zaGFkb3c6IDAgMnB4IDRweCByZ2JhKDAsIDAsIDAsIDAuMSk7XG4gICAgICB6LWluZGV4OiAyO1xuXG4gICAgICAubWVybWFpZC1jb250cm9sLWJ1dHRvbiB7XG4gICAgICAgIGRpc3BsYXk6IGZsZXg7XG4gICAgICAgIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG4gICAgICAgIGp1c3RpZnktY29udGVudDogY2VudGVyO1xuICAgICAgICB3aWR0aDogMzJweDtcbiAgICAgICAgaGVpZ2h0OiAzMnB4O1xuICAgICAgICBwYWRkaW5nOiAwO1xuICAgICAgICBib3JkZXI6IDFweCBzb2xpZCB2YXIoLS1saWdodGdyYXkpO1xuICAgICAgICBiYWNrZ3JvdW5kOiB2YXIoLS1saWdodCk7XG4gICAgICAgIGNvbG9yOiB2YXIoLS1kYXJrKTtcbiAgICAgICAgYm9yZGVyLXJhZGl1czogNHB4O1xuICAgICAgICBjdXJzb3I6IHBvaW50ZXI7XG4gICAgICAgIGZvbnQtc2l6ZTogMTZweDtcbiAgICAgICAgZm9udC1mYW1pbHk6IHZhcigtLWJvZHlGb250KTtcbiAgICAgICAgdHJhbnNpdGlvbjogYWxsIDAuMnMgZWFzZTtcblxuICAgICAgICAmOmhvdmVyIHtcbiAgICAgICAgICBiYWNrZ3JvdW5kOiB2YXIoLS1saWdodGdyYXkpO1xuICAgICAgICB9XG5cbiAgICAgICAgJjphY3RpdmUge1xuICAgICAgICAgIHRyYW5zZm9ybTogdHJhbnNsYXRlWSgxcHgpO1xuICAgICAgICB9XG5cbiAgICAgICAgLy8gU3R5bGUgdGhlIHJlc2V0IGJ1dHRvbiBkaWZmZXJlbnRseVxuICAgICAgICAmOm50aC1jaGlsZCgyKSB7XG4gICAgICAgICAgd2lkdGg6IGF1dG87XG4gICAgICAgICAgcGFkZGluZzogMCAxMnB4O1xuICAgICAgICAgIGZvbnQtc2l6ZTogMTRweDtcbiAgICAgICAgfVxuICAgICAgfVxuICAgIH1cbiAgfVxufVxuIl19 */</style><link href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" rel="stylesheet" type="text/css" spa-preserve/><script src="../../../prescript.js" type="application/javascript" spa-preserve></script><script type="application/javascript" spa-preserve>const fetchData = fetch("../../../static/contentIndex.json").then(data => data.json())</script><link rel="alternate" type="application/rss+xml" title="RSS Feed" href="https://fusabi-lang.github.io/docs/index.xml"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:image" content="https://fusabi-lang.github.io/docs/projects/fusabi/docs/parallel-orchestration-plan-og-image.webp"/><meta property="og:image:url" content="https://fusabi-lang.github.io/docs/projects/fusabi/docs/parallel-orchestration-plan-og-image.webp"/><meta name="twitter:image" content="https://fusabi-lang.github.io/docs/projects/fusabi/docs/parallel-orchestration-plan-og-image.webp"/><meta property="og:image:type" content="image/.webp"/></head><body data-slug="projects/fusabi/docs/parallel-orchestration-plan"><div id="quartz-root" class="page"><div id="quartz-body"><div class="left sidebar"><h2 class="page-title"><a href="../../..">Fusabi Lang Documentation</a></h2><div class="spacer mobile-only"></div><div class="flex-component" style="flex-direction: row; flex-wrap: nowrap; gap: 1rem;"><div style="flex-grow: 1; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><div class="search"><button class="search-button"><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title>Search</title><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"></path><circle cx="8" cy="8" r="7"></circle></g></svg><p>Search</p></button><div class="search-container"><div class="search-space"><input autocomplete="off" class="search-bar" name="search" type="text" aria-label="Search for something" placeholder="Search for something"/><div class="search-layout" data-preview="true"></div></div></div></div></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="darkmode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35" xml:space="preserve" aria-label="Dark mode"><title>Dark mode</title><path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100" xml:space="preserve" aria-label="Light mode"><title>Light mode</title><path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z"></path></svg></button></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="readermode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="readerIcon" fill="currentColor" stroke="currentColor" stroke-width="0.2" stroke-linecap="round" stroke-linejoin="round" width="64px" height="64px" viewBox="0 0 24 24" aria-label="Reader mode"><title>Reader mode</title><g transform="translate(-1.8, -1.8) scale(1.15, 1.2)"><path d="M8.9891247,2.5 C10.1384702,2.5 11.2209868,2.96705384 12.0049645,3.76669482 C12.7883914,2.96705384 13.8709081,2.5 15.0202536,2.5 L18.7549359,2.5 C19.1691495,2.5 19.5049359,2.83578644 19.5049359,3.25 L19.5046891,4.004 L21.2546891,4.00457396 C21.6343849,4.00457396 21.9481801,4.28672784 21.9978425,4.6528034 L22.0046891,4.75457396 L22.0046891,20.25 C22.0046891,20.6296958 21.7225353,20.943491 21.3564597,20.9931534 L21.2546891,21 L2.75468914,21 C2.37499337,21 2.06119817,20.7178461 2.01153575,20.3517706 L2.00468914,20.25 L2.00468914,4.75457396 C2.00468914,4.37487819 2.28684302,4.061083 2.65291858,4.01142057 L2.75468914,4.00457396 L4.50368914,4.004 L4.50444233,3.25 C4.50444233,2.87030423 4.78659621,2.55650904 5.15267177,2.50684662 L5.25444233,2.5 L8.9891247,2.5 Z M4.50368914,5.504 L3.50468914,5.504 L3.50468914,19.5 L10.9478955,19.4998273 C10.4513189,18.9207296 9.73864328,18.5588115 8.96709342,18.5065584 L8.77307039,18.5 L5.25444233,18.5 C4.87474657,18.5 4.56095137,18.2178461 4.51128895,17.8517706 L4.50444233,17.75 L4.50368914,5.504 Z M19.5049359,17.75 C19.5049359,18.1642136 19.1691495,18.5 18.7549359,18.5 L15.2363079,18.5 C14.3910149,18.5 13.5994408,18.8724714 13.0614828,19.4998273 L20.5046891,19.5 L20.5046891,5.504 L19.5046891,5.504 L19.5049359,17.75 Z M18.0059359,3.999 L15.0202536,4 L14.8259077,4.00692283 C13.9889509,4.06666544 13.2254227,4.50975805 12.7549359,5.212 L12.7549359,17.777 L12.7782651,17.7601316 C13.4923805,17.2719483 14.3447024,17 15.2363079,17 L18.0059359,16.999 L18.0056891,4.798 L18.0033792,4.75457396 L18.0056891,4.71 L18.0059359,3.999 Z M8.9891247,4 L6.00368914,3.999 L6.00599909,4.75457396 L6.00599909,4.75457396 L6.00368914,4.783 L6.00368914,16.999 L8.77307039,17 C9.57551536,17 10.3461406,17.2202781 11.0128313,17.6202194 L11.2536891,17.776 L11.2536891,5.211 C10.8200889,4.56369974 10.1361548,4.13636104 9.37521067,4.02745763 L9.18347055,4.00692283 L8.9891247,4 Z"></path></g></svg></button></div></div><div class="explorer" data-behavior="link" data-collapsed="collapsed" data-savestate="true" data-data-fns="{&quot;order&quot;:[&quot;filter&quot;,&quot;map&quot;,&quot;sort&quot;],&quot;sortFn&quot;:&quot;(a,b)=>!a.isFolder&amp;&amp;!b.isFolder||a.isFolder&amp;&amp;b.isFolder?a.displayName.localeCompare(b.displayName,void 0,{numeric:!0,sensitivity:\&quot;base\&quot;}):!a.isFolder&amp;&amp;b.isFolder?1:-1&quot;,&quot;filterFn&quot;:&quot;node=>node.slugSegment!==\&quot;tags\&quot;&quot;,&quot;mapFn&quot;:&quot;node=>node&quot;}"><button type="button" class="explorer-toggle mobile-explorer hide-until-loaded" data-mobile="true" aria-controls="explorer-82"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-menu"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg></button><button type="button" class="title-button explorer-toggle desktop-explorer" data-mobile="false" aria-expanded="true"><h2>Explorer</h2><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div id="explorer-82" class="explorer-content" aria-expanded="false" role="group"><ul class="explorer-ul overflow" id="list-0"><li class="overflow-end"></li></ul></div><template id="template-file"><li><a href="#"></a></li></template><template id="template-folder"><li><div class="folder-container"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="folder-icon"><polyline points="6 9 12 15 18 9"></polyline></svg><div><button class="folder-button"><span class="folder-title"></span></button></div></div><div class="folder-outer"><ul class="content"></ul></div></li></template></div></div><div class="center"><div class="page-header"><div class="popover-hint"><nav class="breadcrumb-container" aria-label="breadcrumbs"><div class="breadcrumb-element"><a href="../../../">Home</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../../projects/">Projects</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../../projects/fusabi/">fusabi</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../../projects/fusabi/docs/">docs</a><p> ❯ </p></div><div class="breadcrumb-element"><a href>parallel orchestration plan</a></div></nav><h1 class="article-title">parallel-orchestration-plan</h1><p show-comma="true" class="content-meta"><time datetime="2025-11-30T03:25:20.645Z">Nov 30, 2025</time><span>12 min read</span></p><ul class="tags"><li><a href="../../../tags/67-71" class="internal tag-link">67-71</a></li></ul></div></div><article class="popover-hint"><h1 id="fusabi-parallel-orchestration-plan-">Fusabi Parallel Orchestration Plan 🚀<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#fusabi-parallel-orchestration-plan-" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<p><strong>Date:</strong> November 20, 2025
+<strong>Status:</strong> Phase 3 Completion Sprint
+<strong>Methodology:</strong> Parallel Agent Execution with Git Hygiene</p>
+<hr/>
+<h2 id="executive-summary">Executive Summary<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#executive-summary" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Based on comprehensive analysis of the Fusabi codebase:</p>
+<ul>
+<li><strong>Phase 1-2:</strong> ✅ Complete (1,301 passing tests)</li>
+<li><strong>Phase 3:</strong> ~60% complete (records/DUs parsing done, execution uncertain)</li>
+<li><strong>Outstanding Work:</strong> 12 active issues + 2 failing PRs</li>
+</ul>
+<p>This plan orchestrates <strong>6 parallel workstreams</strong> using feature branches, pull requests, and squash merges to complete Phase 3 and unlock Phase 4.</p>
+<hr/>
+<h2 id="current-state-analysis">Current State Analysis<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#current-state-analysis" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="-whats-complete">✅ What’s Complete<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-whats-complete" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>Core language (Phase 1): Lexer, parser, AST, VM, bytecode compiler</li>
+<li>Language features (Phase 2): Closures, recursion, tuples, lists, arrays, pattern matching, type inference</li>
+<li>Host interop: Basic function registration working</li>
+<li>Standard library: List, String, Option modules</li>
+</ul>
+<h3 id="️-whats-partial">⚠️ What’s Partial<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#️-whats-partial" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>Records: Parsing complete, bytecode execution uncertain</li>
+<li>Discriminated Unions: Parsing complete, bytecode execution uncertain</li>
+<li>Module system: AST/registry complete, compiler integration unclear</li>
+<li>Benchmarking: Criterion setup done, actual benchmarks missing</li>
+</ul>
+<h3 id="-whats-missing">❌ What’s Missing<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-whats-missing" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>Re-entrant host functions (blocks higher-order stdlib functions)</li>
+<li>Mark-and-sweep garbage collection (memory leaks in cycles)</li>
+<li>Bytecode serialization (.fzb files)</li>
+<li>Implicit prelude &amp; pipeline operator</li>
+<li>Comprehensive example suite</li>
+<li>Full branding/design system</li>
+</ul>
+<h3 id="-failing-prs">🔥 Failing PRs<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-failing-prs" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>PR #72: Branding + HOF support (CI failures)</li>
+<li>PR #73: MCP server (CI failures)</li>
+</ul>
+<hr/>
+<h2 id="parallel-orchestration-strategy">Parallel Orchestration Strategy<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#parallel-orchestration-strategy" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="core-principles-from-dgx-pixels">Core Principles (From dgx-pixels)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#core-principles-from-dgx-pixels" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ol>
+<li><strong>Feature Branch Isolation</strong>: Each workstream gets its own branch</li>
+<li><strong>CI-First Development</strong>: All tests must pass before PR creation</li>
+<li><strong>Squash Merge Policy</strong>: Clean main branch history</li>
+<li><strong>Agent Autonomy</strong>: Each agent owns their full workflow</li>
+<li><strong>Concurrent Execution</strong>: Independent workstreams run in parallel</li>
+<li><strong>Git Hygiene</strong>: Proper commit messages, PR descriptions, review process</li>
+</ol>
+<hr/>
+<h2 id="workstream-definitions">Workstream Definitions<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#workstream-definitions" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="-critical-path-week-1---parallel-execution">🔴 Critical Path (Week 1 - Parallel Execution)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-critical-path-week-1---parallel-execution" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<h4 id="workstream-1-fix-failing-prs"><strong>Workstream 1: Fix Failing PRs</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#workstream-1-fix-failing-prs" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li><strong>Branch:</strong> Multiple (existing PR branches)</li>
+<li><strong>Agent:</strong> <code>devops-automator</code></li>
+<li><strong>Issues:</strong> PR #72, PR #73</li>
+<li><strong>Tasks:</strong>
+<ol>
+<li>Checkout <code>feat/ws1-hof-support</code></li>
+<li>Run <code>cargo fmt --all</code></li>
+<li>Run <code>cargo clippy --all -- -D warnings</code></li>
+<li>Fix all lint/format issues</li>
+<li>Rerun tests (<code>cargo test --workspace</code>)</li>
+<li>Push fixes to PR branch</li>
+<li>Repeat for <code>feat/ws5-mcp-server</code></li>
+<li>Request re-review from maintainer</li>
+</ol>
+</li>
+<li><strong>Dependencies:</strong> None</li>
+<li><strong>Estimate:</strong> 2-4 hours</li>
+<li><strong>Success Criteria:</strong> Both PRs pass CI checks</li>
+</ul>
+<h4 id="workstream-2-re-entrant-host-functions-issue-60"><strong>Workstream 2: Re-entrant Host Functions (Issue #60)</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#workstream-2-re-entrant-host-functions-issue-60" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li><strong>Branch:</strong> <code>feat/issue-60-reentrant-host-fns</code></li>
+<li><strong>Agent:</strong> <code>backend-architect</code></li>
+<li><strong>Priority:</strong> CRITICAL (blocks stdlib HOF)</li>
+<li><strong>Tasks:</strong>
+<ol>
+<li>Create feature branch from main</li>
+<li>Refactor <code>HostFn</code> type signature in <code>host.rs</code>:
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="rust" data-theme="github-light one-dark-pro"><code data-language="rust" data-theme="github-light one-dark-pro" style="display:grid;"><span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#C678DD;">type</span><span style="--shiki-light:#6F42C1;--shiki-dark:#E5C07B;"> HostFn</span><span style="--shiki-light:#D73A49;--shiki-dark:#56B6C2;"> =</span><span style="--shiki-light:#6F42C1;--shiki-dark:#E5C07B;"> Box</span><span style="--shiki-light:#24292E;--shiki-dark:#ABB2BF;">&lt;</span><span style="--shiki-light:#D73A49;--shiki-dark:#C678DD;">dyn</span><span style="--shiki-light:#6F42C1;--shiki-dark:#E5C07B;"> Fn</span><span style="--shiki-light:#24292E;--shiki-dark:#ABB2BF;">(</span><span style="--shiki-light:#D73A49;--shiki-dark:#ABB2BF;">&amp;</span><span style="--shiki-light:#D73A49;--shiki-dark:#C678DD;">mut</span><span style="--shiki-light:#6F42C1;--shiki-dark:#E5C07B;"> Vm</span><span style="--shiki-light:#24292E;--shiki-dark:#ABB2BF;">, </span><span style="--shiki-light:#D73A49;--shiki-dark:#ABB2BF;">&amp;</span><span style="--shiki-light:#24292E;--shiki-dark:#ABB2BF;">[</span><span style="--shiki-light:#6F42C1;--shiki-dark:#E5C07B;">Value</span><span style="--shiki-light:#24292E;--shiki-dark:#ABB2BF;">]) </span><span style="--shiki-light:#D73A49;--shiki-dark:#ABB2BF;">-></span><span style="--shiki-light:#6F42C1;--shiki-dark:#E5C07B;"> Result</span><span style="--shiki-light:#24292E;--shiki-dark:#ABB2BF;">&lt;</span><span style="--shiki-light:#6F42C1;--shiki-dark:#E5C07B;">Value</span><span style="--shiki-light:#24292E;--shiki-dark:#ABB2BF;">>>;</span></span></code></pre></figure>
+</li>
+<li>Update <code>HostRegistry::call</code> to pass <code>&amp;mut Vm</code></li>
+<li>Update VM dispatch in <code>Instruction::Call</code></li>
+<li>Add <code>Vm::call_closure()</code> helper method</li>
+<li>Update all stdlib functions (list.rs, string.rs, option.rs)</li>
+<li>Implement <code>List.map</code> as proof-of-concept</li>
+<li>Write 20+ tests for re-entrant calls</li>
+<li>Run full test suite</li>
+<li>Create PR with description</li>
+<li>Squash merge after approval</li>
+</ol>
+</li>
+<li><strong>Dependencies:</strong> None</li>
+<li><strong>Estimate:</strong> 2-3 days</li>
+<li><strong>Success Criteria:</strong> <code>List.map</code> works with script closures</li>
+</ul>
+<h4 id="workstream-3-records--du-execution-issues-65-partial"><strong>Workstream 3: Records &amp; DU Execution (Issues #65 partial)</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#workstream-3-records--du-execution-issues-65-partial" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li><strong>Branch:</strong> <code>feat/issue-65-records-dus-execution</code></li>
+<li><strong>Agent:</strong> <code>backend-architect</code> (different instance)</li>
+<li><strong>Priority:</strong> HIGH (completes Phase 3 core)</li>
+<li><strong>Tasks:</strong>
+<ol>
+<li>Create feature branch from main</li>
+<li>Analyze existing record/DU parsing tests</li>
+<li>Add bytecode instructions for records:
+<ul>
+<li><code>CreateRecord(field_count)</code></li>
+<li><code>GetRecordField(field_index)</code></li>
+<li><code>SetRecordField(field_index)</code></li>
+</ul>
+</li>
+<li>Add bytecode instructions for DUs:
+<ul>
+<li><code>CreateVariant(tag, field_count)</code></li>
+<li><code>GetVariantTag</code></li>
+<li><code>GetVariantField(field_index)</code></li>
+</ul>
+</li>
+<li>Update compiler to emit new instructions</li>
+<li>Update VM to execute new instructions</li>
+<li>Migrate parsing tests to execution tests</li>
+<li>Write 30+ end-to-end tests</li>
+<li>Create PR</li>
+<li>Squash merge after approval</li>
+</ol>
+</li>
+<li><strong>Dependencies:</strong> None</li>
+<li><strong>Estimate:</strong> 3-4 days</li>
+<li><strong>Success Criteria:</strong> Records and DUs execute correctly in VM</li>
+</ul>
+<hr/>
+<h3 id="-high-priority-week-2---sequential-after-critical">🟡 High Priority (Week 2 - Sequential After Critical)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-high-priority-week-2---sequential-after-critical" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<h4 id="workstream-4-bytecode-serialization-issue-65"><strong>Workstream 4: Bytecode Serialization (Issue #65)</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#workstream-4-bytecode-serialization-issue-65" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li><strong>Branch:</strong> <code>feat/issue-65-bytecode-serialization</code></li>
+<li><strong>Agent:</strong> <code>backend-architect</code></li>
+<li><strong>Priority:</strong> HIGH (enables <code>fus grind</code> command)</li>
+<li><strong>Tasks:</strong>
+<ol>
+<li>Wait for Workstream 3 to merge (depends on final instruction set)</li>
+<li>Create feature branch from main</li>
+<li>Add <code>serde</code> feature to <code>fusabi-vm/Cargo.toml</code></li>
+<li>Derive <code>Serialize</code>/<code>Deserialize</code> for:
+<ul>
+<li><code>Chunk</code> (with custom serializer for Rc handling)</li>
+<li><code>Instruction</code></li>
+<li><code>Value</code> (code constants only, not runtime closures)</li>
+</ul>
+</li>
+<li>Define magic bytes: <code>const FZB_MAGIC: &amp;[u8] = b&quot;FZB\x01&quot;;</code></li>
+<li>Implement CLI command <code>fus grind</code>:
+<ul>
+<li>Compile source to Chunk</li>
+<li>Serialize with bincode</li>
+<li>Prepend magic bytes</li>
+<li>Write to <code>.fzb</code> file</li>
+</ul>
+</li>
+<li>Update <code>fus run</code> to detect magic bytes and deserialize</li>
+<li>Write 15+ serialization tests</li>
+<li>Create PR</li>
+<li>Squash merge</li>
+</ol>
+</li>
+<li><strong>Dependencies:</strong> Workstream 3 (final instruction set)</li>
+<li><strong>Estimate:</strong> 2-3 days</li>
+<li><strong>Success Criteria:</strong> <code>fus grind script.fsx</code> creates working <code>.fzb</code> file</li>
+</ul>
+<h4 id="workstream-5-mark-and-sweep-gc-issue-61"><strong>Workstream 5: Mark-and-Sweep GC (Issue #61)</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#workstream-5-mark-and-sweep-gc-issue-61" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li><strong>Branch:</strong> <code>feat/issue-61-mark-sweep-gc</code></li>
+<li><strong>Agent:</strong> <code>rust-pro</code> (systems programming specialist)</li>
+<li><strong>Priority:</strong> HIGH (prevents memory leaks)</li>
+<li><strong>Tasks:</strong>
+<ol>
+<li>Create feature branch from main</li>
+<li>Design <code>Trace</code> trait in new <code>gc.rs</code>:
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="rust" data-theme="github-light one-dark-pro"><code data-language="rust" data-theme="github-light one-dark-pro" style="display:grid;"><span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#C678DD;">trait</span><span style="--shiki-light:#6F42C1;--shiki-dark:#E5C07B;"> Trace</span><span style="--shiki-light:#24292E;--shiki-dark:#ABB2BF;"> {</span></span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#C678DD;">    fn</span><span style="--shiki-light:#6F42C1;--shiki-dark:#61AFEF;"> trace</span><span style="--shiki-light:#24292E;--shiki-dark:#ABB2BF;">(</span><span style="--shiki-light:#D73A49;--shiki-dark:#ABB2BF;">&amp;</span><span style="--shiki-light:#005CC5;--shiki-dark:#E5C07B;">self</span><span style="--shiki-light:#24292E;--shiki-dark:#ABB2BF;">, </span><span style="--shiki-light:#24292E;--shiki-dark:#E06C75;">tracer</span><span style="--shiki-light:#D73A49;--shiki-dark:#ABB2BF;">:</span><span style="--shiki-light:#D73A49;--shiki-dark:#ABB2BF;"> &amp;</span><span style="--shiki-light:#D73A49;--shiki-dark:#C678DD;">mut</span><span style="--shiki-light:#6F42C1;--shiki-dark:#E5C07B;"> Tracer</span><span style="--shiki-light:#24292E;--shiki-dark:#ABB2BF;">);</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#ABB2BF;">}</span></span></code></pre></figure>
+</li>
+<li>Implement <code>Trace</code> for Value, Record, Variant, Closure</li>
+<li>Create <code>GcHeap</code> allocator struct</li>
+<li>Add GC metadata to Value (color bits for marking)</li>
+<li>Integrate GC roots into VM (stack, globals, upvalues)</li>
+<li>Implement <code>Vm::collect_garbage()</code>:
+<ul>
+<li>Mark phase: Traverse roots</li>
+<li>Sweep phase: Deallocate unmarked objects</li>
+</ul>
+</li>
+<li>Add GC trigger heuristics (allocation count threshold)</li>
+<li>Write 25+ GC tests (cycle detection, stress tests)</li>
+<li>Run memory leak detection tools</li>
+<li>Create PR</li>
+<li>Squash merge</li>
+</ol>
+</li>
+<li><strong>Dependencies:</strong> None (can run in parallel)</li>
+<li><strong>Estimate:</strong> 4-5 days</li>
+<li><strong>Success Criteria:</strong> No memory leaks with recursive structures</li>
+</ul>
+<hr/>
+<h3 id="-medium-priority-week-3---parallel-execution">🟢 Medium Priority (Week 3 - Parallel Execution)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-medium-priority-week-3---parallel-execution" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<h4 id="workstream-6-implicit-prelude--operators-issue-63"><strong>Workstream 6: Implicit Prelude &amp; Operators (Issue #63)</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#workstream-6-implicit-prelude--operators-issue-63" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li><strong>Branch:</strong> <code>feat/issue-63-implicit-prelude</code></li>
+<li><strong>Agent:</strong> <code>frontend-developer</code></li>
+<li><strong>Priority:</strong> MEDIUM (UX improvement)</li>
+<li><strong>Tasks:</strong>
+<ol>
+<li>Create feature branch from main</li>
+<li>Create <code>stdlib/core.rs</code> with:
+<ul>
+<li><code>print</code>, <code>printfn</code></li>
+<li><code>id</code>, <code>ignore</code>, <code>fst</code>, <code>snd</code></li>
+</ul>
+</li>
+<li>Register Core functions in <code>StdlibRegistry</code></li>
+<li>Modify <code>Compiler::compile_program</code> to auto-inject Core bindings</li>
+<li>Add <code>Token::PipeRight</code> (<code>|></code>) to lexer</li>
+<li>Add parser rule for <code>|></code> with correct precedence</li>
+<li>Desugar <code>a |> f</code> to <code>f a</code> in compiler</li>
+<li>Write 15+ tests for Core functions</li>
+<li>Write 10+ tests for pipeline operator</li>
+<li>Create PR</li>
+<li>Squash merge</li>
+</ol>
+</li>
+<li><strong>Dependencies:</strong> None</li>
+<li><strong>Estimate:</strong> 1-2 days</li>
+<li><strong>Success Criteria:</strong> <code>1 |> add 2 |> mul 3</code> works</li>
+</ul>
+<h4 id="workstream-7-comprehensive-benchmarking-issue-62"><strong>Workstream 7: Comprehensive Benchmarking (Issue #62)</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#workstream-7-comprehensive-benchmarking-issue-62" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li><strong>Branch:</strong> <code>feat/issue-62-benchmarking-suite</code></li>
+<li><strong>Agent:</strong> <code>performance-benchmarker</code></li>
+<li><strong>Priority:</strong> MEDIUM (performance tracking)</li>
+<li><strong>Tasks:</strong>
+<ol>
+<li>Create feature branch from main</li>
+<li>Implement micro-benchmarks in <code>fusabi-vm/benches/</code>:
+<ul>
+<li><code>op_dispatch.rs</code>: Tight loop of Add/Sub/Mul/Div/Call</li>
+<li><code>alloc.rs</code>: Record vs Tuple creation (10k iterations)</li>
+<li><code>gc.rs</code>: GC pressure tests</li>
+</ul>
+</li>
+<li>Create macro-benchmark scripts in <code>examples/benchmarks/</code>:
+<ul>
+<li><code>fib.fsx</code>: Recursive fibonacci(30)</li>
+<li><code>sieve.fsx</code>: Prime sieve with lists</li>
+<li><code>binary_trees.fsx</code>: GC stress test</li>
+</ul>
+</li>
+<li>Add Rhai/Rune/Lua comparison harness</li>
+<li>Create <code>just benchmark</code> recipe</li>
+<li>Write benchmark documentation</li>
+<li>Set up CI benchmark tracking (optional)</li>
+<li>Create PR</li>
+<li>Squash merge</li>
+</ol>
+</li>
+<li><strong>Dependencies:</strong> Workstream 5 helpful (GC benchmarks)</li>
+<li><strong>Estimate:</strong> 3-4 days</li>
+<li><strong>Success Criteria:</strong> Benchmarks run and show Lua-comparable performance</li>
+</ul>
+<hr/>
+<h3 id="-low-priority-week-4---documentation--polish">🔵 Low Priority (Week 4 - Documentation &amp; Polish)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-low-priority-week-4---documentation--polish" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<h4 id="workstream-8-example-suite-expansion-issue-66"><strong>Workstream 8: Example Suite Expansion (Issue #66)</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#workstream-8-example-suite-expansion-issue-66" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li><strong>Branch:</strong> <code>feat/issue-66-example-suite</code></li>
+<li><strong>Agent:</strong> <code>backend-architect</code></li>
+<li><strong>Priority:</strong> LOW (marketing/docs)</li>
+<li><strong>Tasks:</strong>
+<ol>
+<li>Create feature branch from main</li>
+<li>Create <code>examples/bevy_scripting/</code>:
+<ul>
+<li>Rust host with Bevy</li>
+<li><code>behavior.fsx</code> script for entity logic</li>
+<li>README with setup instructions</li>
+</ul>
+</li>
+<li>Create <code>examples/ratatui_layout/</code>:
+<ul>
+<li>Rust host with Ratatui</li>
+<li><code>layout.fsx</code> script returning layout Record</li>
+<li>Demo TUI rendering</li>
+</ul>
+</li>
+<li>Create <code>examples/burn_config/</code>:
+<ul>
+<li>Neural net config in F#</li>
+<li>Rust code to parse and initialize Burn model</li>
+</ul>
+</li>
+<li>Create <code>examples/web_server/</code>:
+<ul>
+<li>Axum server</li>
+<li><code>validation.fsx</code> for endpoint logic</li>
+</ul>
+</li>
+<li>Create <code>examples/computations/</code>:
+<ul>
+<li>Result computation expression example</li>
+</ul>
+</li>
+<li>Update <code>examples/README.md</code> with catalog</li>
+<li>Create PR</li>
+<li>Squash merge</li>
+</ol>
+</li>
+<li><strong>Dependencies:</strong> Workstream 2 (for HOF in scripts)</li>
+<li><strong>Estimate:</strong> 5-7 days</li>
+<li><strong>Success Criteria:</strong> 5 working ecosystem integration examples</li>
+</ul>
+<h4 id="workstream-9-branding--documentation-issues-67-71"><strong>Workstream 9: Branding &amp; Documentation (Issues <a href="../../.././../../tags/67-71" class="tag-link internal alias" data-slug="tags/67-71">67-71</a>)</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#workstream-9-branding--documentation-issues-67-71" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li><strong>Branch:</strong> Merge PR #72 after fixes (Workstream 1)</li>
+<li><strong>Agent:</strong> <code>frontend-developer</code> + <code>visual-storyteller</code></li>
+<li><strong>Priority:</strong> LOW (polish)</li>
+<li><strong>Tasks:</strong>
+<ol>
+<li>After PR #72 merges, verify:
+<ul>
+<li><code>docs/branding.md</code> exists with color palette</li>
+<li><code>docs/omakase.md</code> exists with cookbook</li>
+<li><code>assets/logo.svg</code> exists</li>
+<li>CLI has colorized output</li>
+<li>README has brand voice</li>
+</ul>
+</li>
+<li>If anything missing, create follow-up branch</li>
+<li>Add any remaining brand polish</li>
+<li>Create PR (if needed)</li>
+<li>Squash merge</li>
+</ol>
+</li>
+<li><strong>Dependencies:</strong> Workstream 1 (PR #72 fixes)</li>
+<li><strong>Estimate:</strong> Already done in PR, just merge</li>
+<li><strong>Success Criteria:</strong> Full brand identity deployed</li>
+</ul>
+<h4 id="workstream-10-contributor-guide-issue-59"><strong>Workstream 10: Contributor Guide (Issue #59)</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#workstream-10-contributor-guide-issue-59" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li><strong>Branch:</strong> Use PR #72 (already includes CONTRIBUTING.md)</li>
+<li><strong>Agent:</strong> <code>frontend-developer</code></li>
+<li><strong>Priority:</strong> LOW (onboarding)</li>
+<li><strong>Tasks:</strong>
+<ol>
+<li>Verify PR #72 includes:
+<ul>
+<li><code>CONTRIBUTING.md</code> with architecture guide</li>
+<li><code>docs/abi.md</code> with value representation</li>
+<li><code>docs/security.md</code> with sandboxing notes</li>
+</ul>
+</li>
+<li>If incomplete, create follow-up PR</li>
+<li>Expand CONTRIBUTING.md with:
+<ul>
+<li>How to add new Instruction</li>
+<li>How to add new stdlib function</li>
+<li>Testing guidelines</li>
+</ul>
+</li>
+<li>Create PR (if needed)</li>
+<li>Squash merge</li>
+</ol>
+</li>
+<li><strong>Dependencies:</strong> Workstream 1 (PR #72 merge)</li>
+<li><strong>Estimate:</strong> 1 day (mostly done)</li>
+<li><strong>Success Criteria:</strong> Complete contributor onboarding docs</li>
+</ul>
+<hr/>
+<h2 id="execution-timeline">Execution Timeline<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#execution-timeline" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="week-1-critical-path-parallel">Week 1: Critical Path (Parallel)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#week-1-critical-path-parallel" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<pre><code>Day 1-2:
+  ├─ [WS1] Fix PR #72 and #73 CI failures ⚡
+  ├─ [WS2] Implement re-entrant host functions
+  └─ [WS3] Records &amp; DUs execution
+
+Day 3-5:
+  ├─ [WS2] Complete HOF support + tests
+  ├─ [WS3] Complete records/DUs + tests
+  └─ [WS5] Start GC implementation (parallel)
+
+Day 6-7:
+  ├─ [WS2] Create PR, review, merge
+  ├─ [WS3] Create PR, review, merge
+  └─ [WS5] Continue GC work
+</code></pre>
+<h3 id="week-2-high-priority-sequential-then-parallel">Week 2: High Priority (Sequential then Parallel)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#week-2-high-priority-sequential-then-parallel" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<pre><code>Day 8-10:
+  ├─ [WS4] Bytecode serialization (after WS3 merge)
+  ├─ [WS5] Complete GC implementation
+  └─ [WS6] Implicit prelude (parallel)
+
+Day 11-14:
+  ├─ [WS4] Test serialization, create PR, merge
+  ├─ [WS5] GC tests, create PR, merge
+  ├─ [WS6] Complete prelude, create PR, merge
+  └─ [WS7] Start benchmarking suite
+</code></pre>
+<h3 id="week-3-medium-priority-parallel">Week 3: Medium Priority (Parallel)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#week-3-medium-priority-parallel" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<pre><code>Day 15-21:
+  ├─ [WS7] Complete benchmarks, create PR, merge
+  └─ [WS8] Start example suite expansion
+</code></pre>
+<h3 id="week-4-low-priority-documentation">Week 4: Low Priority (Documentation)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#week-4-low-priority-documentation" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<pre><code>Day 22-28:
+  ├─ [WS8] Complete examples, create PR, merge
+  ├─ [WS9] Finalize branding (merge PR #72 remnants)
+  └─ [WS10] Complete contributor docs
+</code></pre>
+<hr/>
+<h2 id="git-hygiene-protocol">Git Hygiene Protocol<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#git-hygiene-protocol" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="branch-naming-convention">Branch Naming Convention<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#branch-naming-convention" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<pre><code>feat/issue-&lt;number>-&lt;short-description>
+fix/issue-&lt;number>-&lt;short-description>
+docs/issue-&lt;number>-&lt;short-description>
+</code></pre>
+<p>Examples:</p>
+<ul>
+<li><code>feat/issue-60-reentrant-host-fns</code></li>
+<li><code>feat/issue-61-mark-sweep-gc</code></li>
+<li><code>docs/issue-59-contributor-guide</code></li>
+</ul>
+<h3 id="commit-message-format">Commit Message Format<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#commit-message-format" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<pre><code>&lt;type>(&lt;scope>): &lt;description>
+
+&lt;body>
+
+&lt;footer>
+</code></pre>
+<p>Types: <code>feat</code>, <code>fix</code>, <code>docs</code>, <code>test</code>, <code>refactor</code>, <code>perf</code>, <code>chore</code></p>
+<p>Example:</p>
+<pre><code>feat(vm): Implement re-entrant host functions
+
+- Refactor HostFn signature to accept &amp;mut Vm
+- Add Vm::call_closure() helper method
+- Update stdlib functions to use new signature
+- Implement List.map as proof-of-concept
+
+Closes #60
+</code></pre>
+<h3 id="pull-request-template">Pull Request Template<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#pull-request-template" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="markdown" data-theme="github-light one-dark-pro"><code data-language="markdown" data-theme="github-light one-dark-pro" style="display:grid;"><span data-line><span style="--shiki-light:#005CC5;--shiki-light-font-weight:bold;--shiki-dark:#E06C75;--shiki-dark-font-weight:inherit;">## Description</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#ABB2BF;">Brief description of changes</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-light-font-weight:bold;--shiki-dark:#E06C75;--shiki-dark-font-weight:inherit;">## Motivation</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#ABB2BF;">Why is this change needed? What problem does it solve?</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-light-font-weight:bold;--shiki-dark:#E06C75;--shiki-dark-font-weight:inherit;">## Changes</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#E5C07B;">-</span><span style="--shiki-light:#24292E;--shiki-dark:#ABB2BF;"> Bullet list of key changes</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#E5C07B;">-</span><span style="--shiki-light:#24292E;--shiki-dark:#ABB2BF;"> Focus on user-visible impact</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-light-font-weight:bold;--shiki-dark:#E06C75;--shiki-dark-font-weight:inherit;">## Testing</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#E5C07B;">-</span><span style="--shiki-light:#24292E;--shiki-dark:#ABB2BF;"> Describe test strategy</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#E5C07B;">-</span><span style="--shiki-light:#24292E;--shiki-dark:#ABB2BF;"> List new tests added</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#E5C07B;">-</span><span style="--shiki-light:#24292E;--shiki-dark:#ABB2BF;"> Confirm all tests pass</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-light-font-weight:bold;--shiki-dark:#E06C75;--shiki-dark-font-weight:inherit;">## Checklist</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#E5C07B;">-</span><span style="--shiki-light:#24292E;--shiki-dark:#ABB2BF;"> [ ] All tests pass (</span><span style="--shiki-light:#005CC5;--shiki-dark:#E5C07B;">`</span><span style="--shiki-light:#005CC5;--shiki-dark:#98C379;">cargo test --workspace</span><span style="--shiki-light:#005CC5;--shiki-dark:#E5C07B;">`</span><span style="--shiki-light:#24292E;--shiki-dark:#ABB2BF;">)</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#E5C07B;">-</span><span style="--shiki-light:#24292E;--shiki-dark:#ABB2BF;"> [ ] Code formatted (</span><span style="--shiki-light:#005CC5;--shiki-dark:#E5C07B;">`</span><span style="--shiki-light:#005CC5;--shiki-dark:#98C379;">cargo fmt --all</span><span style="--shiki-light:#005CC5;--shiki-dark:#E5C07B;">`</span><span style="--shiki-light:#24292E;--shiki-dark:#ABB2BF;">)</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#E5C07B;">-</span><span style="--shiki-light:#24292E;--shiki-dark:#ABB2BF;"> [ ] No clippy warnings (</span><span style="--shiki-light:#005CC5;--shiki-dark:#E5C07B;">`</span><span style="--shiki-light:#005CC5;--shiki-dark:#98C379;">cargo clippy --all -- -D warnings</span><span style="--shiki-light:#005CC5;--shiki-dark:#E5C07B;">`</span><span style="--shiki-light:#24292E;--shiki-dark:#ABB2BF;">)</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#E5C07B;">-</span><span style="--shiki-light:#24292E;--shiki-dark:#ABB2BF;"> [ ] Documentation updated</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#E5C07B;">-</span><span style="--shiki-light:#24292E;--shiki-dark:#ABB2BF;"> [ ] CHANGELOG.md updated (if applicable)</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#ABB2BF;">Closes #&lt;issue-number></span></span></code></pre></figure>
+<h3 id="review-process">Review Process<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#review-process" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ol>
+<li>Agent creates PR with complete description</li>
+<li>CI runs all checks (format, lint, test, docs)</li>
+<li>Agent addresses any CI failures</li>
+<li>Maintainer reviews (can be automated for agent PRs)</li>
+<li>Squash merge to main (single commit per feature)</li>
+<li>Delete feature branch</li>
+</ol>
+<h3 id="squash-merge-policy">Squash Merge Policy<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#squash-merge-policy" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="bash" data-theme="github-light one-dark-pro"><code data-language="bash" data-theme="github-light one-dark-pro" style="display:grid;"><span data-line><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#7F848E;--shiki-dark-font-style:italic;"># When merging PR</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#61AFEF;">gh</span><span style="--shiki-light:#032F62;--shiki-dark:#98C379;"> pr</span><span style="--shiki-light:#032F62;--shiki-dark:#98C379;"> merge</span><span style="--shiki-light:#D73A49;--shiki-dark:#ABB2BF;"> &lt;</span><span style="--shiki-light:#032F62;--shiki-dark:#98C379;">numbe</span><span style="--shiki-light:#24292E;--shiki-dark:#ABB2BF;">r</span><span style="--shiki-light:#D73A49;--shiki-dark:#ABB2BF;">></span><span style="--shiki-light:#005CC5;--shiki-dark:#D19A66;"> --squash</span><span style="--shiki-light:#005CC5;--shiki-dark:#D19A66;"> --delete-branch</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#7F848E;--shiki-dark-font-style:italic;"># Squash merge message format:</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#61AFEF;">feat(vm</span><span style="--shiki-light:#24292E;--shiki-dark:#ABB2BF;">): Implement re-entrant host functions (#60)</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#61AFEF;">*</span><span style="--shiki-light:#032F62;--shiki-dark:#98C379;"> Refactor</span><span style="--shiki-light:#032F62;--shiki-dark:#98C379;"> HostFn</span><span style="--shiki-light:#032F62;--shiki-dark:#98C379;"> signature</span></span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#ABB2BF;">*</span><span style="--shiki-light:#24292E;--shiki-dark:#ABB2BF;"> Add Vm::call_closure helper</span></span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#ABB2BF;">*</span><span style="--shiki-light:#24292E;--shiki-dark:#ABB2BF;"> Update stdlib functions</span></span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#ABB2BF;">*</span><span style="--shiki-light:#24292E;--shiki-dark:#ABB2BF;"> Implement List.map</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#61AFEF;">Co-authored-by:</span><span style="--shiki-light:#032F62;--shiki-dark:#98C379;"> Claude</span><span style="--shiki-light:#D73A49;--shiki-dark:#ABB2BF;"> &lt;</span><span style="--shiki-light:#032F62;--shiki-dark:#98C379;">noreply@anthropic.co</span><span style="--shiki-light:#24292E;--shiki-dark:#ABB2BF;">m</span><span style="--shiki-light:#D73A49;--shiki-dark:#ABB2BF;">></span></span></code></pre></figure>
+<hr/>
+<h2 id="agent-execution-instructions">Agent Execution Instructions<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#agent-execution-instructions" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="for-each-workstream-agent">For Each Workstream Agent<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#for-each-workstream-agent" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p><strong>Phase 1: Setup</strong></p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="bash" data-theme="github-light one-dark-pro"><code data-language="bash" data-theme="github-light one-dark-pro" style="display:grid;"><span data-line><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#7F848E;--shiki-dark-font-style:italic;"># 1. Create feature branch</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#61AFEF;">git</span><span style="--shiki-light:#032F62;--shiki-dark:#98C379;"> checkout</span><span style="--shiki-light:#032F62;--shiki-dark:#98C379;"> main</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#61AFEF;">git</span><span style="--shiki-light:#032F62;--shiki-dark:#98C379;"> pull</span><span style="--shiki-light:#032F62;--shiki-dark:#98C379;"> origin</span><span style="--shiki-light:#032F62;--shiki-dark:#98C379;"> main</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#61AFEF;">git</span><span style="--shiki-light:#032F62;--shiki-dark:#98C379;"> checkout</span><span style="--shiki-light:#005CC5;--shiki-dark:#D19A66;"> -b</span><span style="--shiki-light:#032F62;--shiki-dark:#98C379;"> feat/issue-XX-description</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#7F848E;--shiki-dark-font-style:italic;"># 2. Verify clean workspace</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#61AFEF;">git</span><span style="--shiki-light:#032F62;--shiki-dark:#98C379;"> status</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#61AFEF;">cargo</span><span style="--shiki-light:#032F62;--shiki-dark:#98C379;"> clean</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#61AFEF;">cargo</span><span style="--shiki-light:#032F62;--shiki-dark:#98C379;"> build</span><span style="--shiki-light:#005CC5;--shiki-dark:#D19A66;"> --workspace</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#61AFEF;">cargo</span><span style="--shiki-light:#032F62;--shiki-dark:#98C379;"> test</span><span style="--shiki-light:#005CC5;--shiki-dark:#D19A66;"> --workspace</span></span></code></pre></figure>
+<p><strong>Phase 2: Implementation</strong></p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="bash" data-theme="github-light one-dark-pro"><code data-language="bash" data-theme="github-light one-dark-pro" style="display:grid;"><span data-line><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#7F848E;--shiki-dark-font-style:italic;"># 3. Implement feature</span></span>
+<span data-line><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#7F848E;--shiki-dark-font-style:italic;"># - Edit source files</span></span>
+<span data-line><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#7F848E;--shiki-dark-font-style:italic;"># - Add tests</span></span>
+<span data-line><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#7F848E;--shiki-dark-font-style:italic;"># - Update documentation</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#7F848E;--shiki-dark-font-style:italic;"># 4. Run checks continuously</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#61AFEF;">cargo</span><span style="--shiki-light:#032F62;--shiki-dark:#98C379;"> fmt</span><span style="--shiki-light:#005CC5;--shiki-dark:#D19A66;"> --all</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#61AFEF;">cargo</span><span style="--shiki-light:#032F62;--shiki-dark:#98C379;"> clippy</span><span style="--shiki-light:#005CC5;--shiki-dark:#D19A66;"> --all</span><span style="--shiki-light:#005CC5;--shiki-dark:#D19A66;"> --</span><span style="--shiki-light:#005CC5;--shiki-dark:#D19A66;"> -D</span><span style="--shiki-light:#032F62;--shiki-dark:#98C379;"> warnings</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#61AFEF;">cargo</span><span style="--shiki-light:#032F62;--shiki-dark:#98C379;"> test</span><span style="--shiki-light:#005CC5;--shiki-dark:#D19A66;"> --workspace</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#7F848E;--shiki-dark-font-style:italic;"># 5. Commit frequently with good messages</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#61AFEF;">git</span><span style="--shiki-light:#032F62;--shiki-dark:#98C379;"> add</span><span style="--shiki-light:#032F62;--shiki-dark:#98C379;"> .</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#61AFEF;">git</span><span style="--shiki-light:#032F62;--shiki-dark:#98C379;"> commit</span><span style="--shiki-light:#005CC5;--shiki-dark:#D19A66;"> -m</span><span style="--shiki-light:#032F62;--shiki-dark:#98C379;"> &quot;feat(scope): Add feature X&quot;</span></span></code></pre></figure>
+<p><strong>Phase 3: Finalization</strong></p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="bash" data-theme="github-light one-dark-pro"><code data-language="bash" data-theme="github-light one-dark-pro" style="display:grid;"><span data-line><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#7F848E;--shiki-dark-font-style:italic;"># 6. Final quality check</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#61AFEF;">cargo</span><span style="--shiki-light:#032F62;--shiki-dark:#98C379;"> build</span><span style="--shiki-light:#005CC5;--shiki-dark:#D19A66;"> --release</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#61AFEF;">cargo</span><span style="--shiki-light:#032F62;--shiki-dark:#98C379;"> test</span><span style="--shiki-light:#005CC5;--shiki-dark:#D19A66;"> --workspace</span><span style="--shiki-light:#005CC5;--shiki-dark:#D19A66;"> --release</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#61AFEF;">cargo</span><span style="--shiki-light:#032F62;--shiki-dark:#98C379;"> doc</span><span style="--shiki-light:#005CC5;--shiki-dark:#D19A66;"> --workspace</span><span style="--shiki-light:#005CC5;--shiki-dark:#D19A66;"> --no-deps</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#7F848E;--shiki-dark-font-style:italic;"># 7. Update CHANGELOG.md</span></span>
+<span data-line><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#7F848E;--shiki-dark-font-style:italic;"># Add entry under &quot;Unreleased&quot; section</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#7F848E;--shiki-dark-font-style:italic;"># 8. Final commit</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#61AFEF;">git</span><span style="--shiki-light:#032F62;--shiki-dark:#98C379;"> add</span><span style="--shiki-light:#032F62;--shiki-dark:#98C379;"> .</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#61AFEF;">git</span><span style="--shiki-light:#032F62;--shiki-dark:#98C379;"> commit</span><span style="--shiki-light:#005CC5;--shiki-dark:#D19A66;"> -m</span><span style="--shiki-light:#032F62;--shiki-dark:#98C379;"> &quot;chore: Update CHANGELOG for issue #XX&quot;</span></span></code></pre></figure>
+<p><strong>Phase 4: Pull Request</strong></p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="bash" data-theme="github-light one-dark-pro"><code data-language="bash" data-theme="github-light one-dark-pro" style="display:grid;"><span data-line><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#7F848E;--shiki-dark-font-style:italic;"># 9. Push to remote</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#61AFEF;">git</span><span style="--shiki-light:#032F62;--shiki-dark:#98C379;"> push</span><span style="--shiki-light:#032F62;--shiki-dark:#98C379;"> origin</span><span style="--shiki-light:#032F62;--shiki-dark:#98C379;"> feat/issue-XX-description</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#7F848E;--shiki-dark-font-style:italic;"># 10. Create PR</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#61AFEF;">gh</span><span style="--shiki-light:#032F62;--shiki-dark:#98C379;"> pr</span><span style="--shiki-light:#032F62;--shiki-dark:#98C379;"> create</span><span style="--shiki-light:#005CC5;--shiki-dark:#56B6C2;"> \</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#D19A66;">  --title</span><span style="--shiki-light:#032F62;--shiki-dark:#98C379;"> &quot;feat: Implement Feature X (#XX)&quot;</span><span style="--shiki-light:#005CC5;--shiki-dark:#56B6C2;"> \</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#D19A66;">  --body</span><span style="--shiki-light:#032F62;--shiki-dark:#98C379;"> &quot;$(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#61AFEF;">cat</span><span style="--shiki-light:#D73A49;--shiki-dark:#ABB2BF;"> &lt;&lt;</span><span style="--shiki-light:#032F62;--shiki-dark:#98C379;">EOF</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#98C379;">## Description</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#98C379;">[Brief description]</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#98C379;">## Motivation</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#98C379;">Closes #XX</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#98C379;">## Changes</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#98C379;">- Change 1</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#98C379;">- Change 2</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#98C379;">## Testing</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#98C379;">- Added XX tests</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#98C379;">- All tests pass</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#98C379;">## Checklist</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#98C379;">- [x] All tests pass</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#98C379;">- [x] Code formatted</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#98C379;">- [x] No clippy warnings</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#98C379;">- [x] Documentation updated</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#98C379;">EOF</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#98C379;">)&quot;</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#7F848E;--shiki-dark-font-style:italic;"># 11. Monitor CI</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#61AFEF;">gh</span><span style="--shiki-light:#032F62;--shiki-dark:#98C379;"> pr</span><span style="--shiki-light:#032F62;--shiki-dark:#98C379;"> checks</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#7F848E;--shiki-dark-font-style:italic;"># 12. Address CI failures if any</span></span>
+<span data-line><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#7F848E;--shiki-dark-font-style:italic;"># (fix, commit, push again)</span></span></code></pre></figure>
+<p><strong>Phase 5: Merge</strong></p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="bash" data-theme="github-light one-dark-pro"><code data-language="bash" data-theme="github-light one-dark-pro" style="display:grid;"><span data-line><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#7F848E;--shiki-dark-font-style:italic;"># 13. After approval, squash merge</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#61AFEF;">gh</span><span style="--shiki-light:#032F62;--shiki-dark:#98C379;"> pr</span><span style="--shiki-light:#032F62;--shiki-dark:#98C379;"> merge</span><span style="--shiki-light:#005CC5;--shiki-dark:#D19A66;"> --squash</span><span style="--shiki-light:#005CC5;--shiki-dark:#D19A66;"> --delete-branch</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#7F848E;--shiki-dark-font-style:italic;"># 14. Switch back to main</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#61AFEF;">git</span><span style="--shiki-light:#032F62;--shiki-dark:#98C379;"> checkout</span><span style="--shiki-light:#032F62;--shiki-dark:#98C379;"> main</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#61AFEF;">git</span><span style="--shiki-light:#032F62;--shiki-dark:#98C379;"> pull</span><span style="--shiki-light:#032F62;--shiki-dark:#98C379;"> origin</span><span style="--shiki-light:#032F62;--shiki-dark:#98C379;"> main</span></span></code></pre></figure>
+<hr/>
+<h2 id="parallel-execution-matrix">Parallel Execution Matrix<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#parallel-execution-matrix" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Workstream</th><th>Week</th><th>Agent Type</th><th>Can Run Parallel With</th></tr></thead><tbody><tr><td>WS1: Fix PRs</td><td>1</td><td>devops-automator</td><td>All (different branches)</td></tr><tr><td>WS2: HOF</td><td>1</td><td>backend-architect</td><td>WS3, WS5</td></tr><tr><td>WS3: Records/DUs</td><td>1</td><td>backend-architect</td><td>WS2, WS5</td></tr><tr><td>WS4: Serialization</td><td>2</td><td>backend-architect</td><td>WS5, WS6 (after WS3)</td></tr><tr><td>WS5: GC</td><td>1-2</td><td>rust-pro</td><td>All (independent)</td></tr><tr><td>WS6: Prelude</td><td>2</td><td>frontend-developer</td><td>WS4, WS5, WS7</td></tr><tr><td>WS7: Benchmarks</td><td>2-3</td><td>performance-benchmarker</td><td>WS6, WS8</td></tr><tr><td>WS8: Examples</td><td>3-4</td><td>backend-architect</td><td>WS7, WS9, WS10</td></tr><tr><td>WS9: Branding</td><td>4</td><td>frontend-developer</td><td>WS8, WS10</td></tr><tr><td>WS10: Docs</td><td>4</td><td>frontend-developer</td><td>WS8, WS9</td></tr></tbody></table></div>
+<p><strong>Maximum Parallelism</strong>: 4 concurrent workstreams (WS2, WS3, WS5, WS1)</p>
+<hr/>
+<h2 id="success-metrics">Success Metrics<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#success-metrics" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="code-quality">Code Quality<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#code-quality" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul class="contains-task-list">
+<li class="task-list-item"><input type="checkbox" disabled/> 100% tests passing (maintain 1,301+ tests)</li>
+<li class="task-list-item"><input type="checkbox" disabled/> Zero clippy warnings</li>
+<li class="task-list-item"><input type="checkbox" disabled/> Code coverage > 80%</li>
+<li class="task-list-item"><input type="checkbox" disabled/> All PRs have >3 tests added</li>
+</ul>
+<h3 id="performance">Performance<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#performance" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul class="contains-task-list">
+<li class="task-list-item"><input type="checkbox" disabled/> Benchmarks show &lt;10% regression from baseline</li>
+<li class="task-list-item"><input type="checkbox" disabled/> Startup time &lt; 5ms for simple scripts</li>
+<li class="task-list-item"><input type="checkbox" disabled/> 5-10M ops/sec sustained throughput</li>
+</ul>
+<h3 id="completeness">Completeness<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#completeness" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul class="contains-task-list">
+<li class="task-list-item"><input type="checkbox" disabled/> All 12 open issues closed</li>
+<li class="task-list-item"><input type="checkbox" disabled/> Phase 3 marked 100% complete</li>
+<li class="task-list-item"><input type="checkbox" disabled/> Phase 4 roadmap updated</li>
+<li class="task-list-item"><input type="checkbox" disabled/> v0.3.0-alpha release tagged</li>
+</ul>
+<h3 id="documentation">Documentation<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#documentation" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul class="contains-task-list">
+<li class="task-list-item"><input type="checkbox" disabled/> CONTRIBUTING.md complete</li>
+<li class="task-list-item"><input type="checkbox" disabled/> All new features documented</li>
+<li class="task-list-item"><input type="checkbox" disabled/> CHANGELOG.md updated</li>
+<li class="task-list-item"><input type="checkbox" disabled/> README.md reflects current state</li>
+</ul>
+<hr/>
+<h2 id="risk-mitigation">Risk Mitigation<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#risk-mitigation" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="risk-1-gc-implementation-complexity">Risk 1: GC Implementation Complexity<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#risk-1-gc-implementation-complexity" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li><strong>Mitigation:</strong> Allocate 5 days, use Rust-pro agent with systems programming expertise</li>
+<li><strong>Fallback:</strong> Keep Rc implementation, document known leak patterns</li>
+</ul>
+<h3 id="risk-2-recordsdus-execution-uncertain">Risk 2: Records/DUs Execution Uncertain<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#risk-2-recordsdus-execution-uncertain" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li><strong>Mitigation:</strong> Start with thorough analysis of existing tests before implementation</li>
+<li><strong>Fallback:</strong> If execution works, just add more tests; if broken, budget 2 extra days</li>
+</ul>
+<h3 id="risk-3-pr-merge-conflicts">Risk 3: PR Merge Conflicts<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#risk-3-pr-merge-conflicts" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li><strong>Mitigation:</strong> Frequent rebases on main, WS1-3 merge before WS4-10 start</li>
+<li><strong>Fallback:</strong> Agent resolves conflicts with <code>git rebase main</code>, reruns tests</li>
+</ul>
+<h3 id="risk-4-ci-pipeline-failures">Risk 4: CI Pipeline Failures<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#risk-4-ci-pipeline-failures" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li><strong>Mitigation:</strong> Run checks locally before push, agents fix their own CI failures</li>
+<li><strong>Fallback:</strong> devops-automator agent assists with CI debugging</li>
+</ul>
+<hr/>
+<h2 id="post-completion">Post-Completion<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#post-completion" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="after-all-workstreams-complete">After All Workstreams Complete<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#after-all-workstreams-complete" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ol>
+<li><strong>Update Version</strong>: Bump to <code>v0.3.0-alpha</code></li>
+<li><strong>Update README.md</strong>: Change status to “Phase 3 Complete”</li>
+<li><strong>Update Roadmap</strong>: Mark Phase 3 100%, detail Phase 4</li>
+<li><strong>Create Release</strong>:
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="bash" data-theme="github-light one-dark-pro"><code data-language="bash" data-theme="github-light one-dark-pro" style="display:grid;"><span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#61AFEF;">git</span><span style="--shiki-light:#032F62;--shiki-dark:#98C379;"> tag</span><span style="--shiki-light:#005CC5;--shiki-dark:#D19A66;"> -a</span><span style="--shiki-light:#032F62;--shiki-dark:#98C379;"> v0.3.0-alpha</span><span style="--shiki-light:#005CC5;--shiki-dark:#D19A66;"> -m</span><span style="--shiki-light:#032F62;--shiki-dark:#98C379;"> &quot;Phase 3 Complete: Advanced Features&quot;</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#61AFEF;">git</span><span style="--shiki-light:#032F62;--shiki-dark:#98C379;"> push</span><span style="--shiki-light:#032F62;--shiki-dark:#98C379;"> origin</span><span style="--shiki-light:#032F62;--shiki-dark:#98C379;"> v0.3.0-alpha</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#61AFEF;">gh</span><span style="--shiki-light:#032F62;--shiki-dark:#98C379;"> release</span><span style="--shiki-light:#032F62;--shiki-dark:#98C379;"> create</span><span style="--shiki-light:#032F62;--shiki-dark:#98C379;"> v0.3.0-alpha</span><span style="--shiki-light:#005CC5;--shiki-dark:#D19A66;"> --title</span><span style="--shiki-light:#032F62;--shiki-dark:#98C379;"> &quot;v0.3.0-alpha - Phase 3 Complete&quot;</span><span style="--shiki-light:#005CC5;--shiki-dark:#D19A66;"> --notes-file</span><span style="--shiki-light:#032F62;--shiki-dark:#98C379;"> docs/changelog-0.3.0.md</span></span></code></pre></figure>
+</li>
+<li><strong>Write Blog Post</strong>: Announce Phase 3 completion</li>
+<li><strong>Update Social</strong>: Share progress on relevant channels</li>
+</ol>
+<hr/>
+<h2 id="monitoring--reporting">Monitoring &amp; Reporting<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#monitoring--reporting" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="daily-standup-automated">Daily Standup (Automated)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#daily-standup-automated" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Each agent reports:</p>
+<ul>
+<li>What I completed yesterday</li>
+<li>What I’m working on today</li>
+<li>Any blockers</li>
+</ul>
+<h3 id="weekly-summary">Weekly Summary<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#weekly-summary" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>Issues closed: X/12</li>
+<li>PRs merged: X/10</li>
+<li>Test count: Current vs target</li>
+<li>Phase completion: X%</li>
+</ul>
+<h3 id="completion-report">Completion Report<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#completion-report" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Final document summarizing:</p>
+<ul>
+<li>All features implemented</li>
+<li>All tests passing</li>
+<li>Performance benchmarks</li>
+<li>Known limitations</li>
+<li>Phase 4 readiness</li>
+</ul>
+<hr/>
+<p><strong>End of Orchestration Plan</strong></p>
+<p>Next step: Execute Workstream 1 (Fix PRs) immediately, then spawn parallel agents for WS2, WS3, WS5.</p></article><hr/><div class="page-footer"></div></div><div class="right sidebar"><div class="graph"><h3>Graph View</h3><div class="graph-outer"><div class="graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:1,&quot;scale&quot;:1.1,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:false,&quot;enableRadial&quot;:false}"></div><button class="global-graph-icon" aria-label="Global Graph"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 55 55" fill="currentColor" xml:space="preserve"><path d="M49,0c-3.309,0-6,2.691-6,6c0,1.035,0.263,2.009,0.726,2.86l-9.829,9.829C32.542,17.634,30.846,17,29,17
+                s-3.542,0.634-4.898,1.688l-7.669-7.669C16.785,10.424,17,9.74,17,9c0-2.206-1.794-4-4-4S9,6.794,9,9s1.794,4,4,4
+                c0.74,0,1.424-0.215,2.019-0.567l7.669,7.669C21.634,21.458,21,23.154,21,25s0.634,3.542,1.688,4.897L10.024,42.562
+                C8.958,41.595,7.549,41,6,41c-3.309,0-6,2.691-6,6s2.691,6,6,6s6-2.691,6-6c0-1.035-0.263-2.009-0.726-2.86l12.829-12.829
+                c1.106,0.86,2.44,1.436,3.898,1.619v10.16c-2.833,0.478-5,2.942-5,5.91c0,3.309,2.691,6,6,6s6-2.691,6-6c0-2.967-2.167-5.431-5-5.91
+                v-10.16c1.458-0.183,2.792-0.759,3.898-1.619l7.669,7.669C41.215,39.576,41,40.26,41,41c0,2.206,1.794,4,4,4s4-1.794,4-4
+                s-1.794-4-4-4c-0.74,0-1.424,0.215-2.019,0.567l-7.669-7.669C36.366,28.542,37,26.846,37,25s-0.634-3.542-1.688-4.897l9.665-9.665
+                C46.042,11.405,47.451,12,49,12c3.309,0,6-2.691,6-6S52.309,0,49,0z M11,9c0-1.103,0.897-2,2-2s2,0.897,2,2s-0.897,2-2,2
+                S11,10.103,11,9z M6,51c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S8.206,51,6,51z M33,49c0,2.206-1.794,4-4,4s-4-1.794-4-4
+                s1.794-4,4-4S33,46.794,33,49z M29,31c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S32.309,31,29,31z M47,41c0,1.103-0.897,2-2,2
+                s-2-0.897-2-2s0.897-2,2-2S47,39.897,47,41z M49,10c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S51.206,10,49,10z"></path></svg></button></div><div class="global-graph-outer"><div class="global-graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:-1,&quot;scale&quot;:0.9,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.2,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:true,&quot;enableRadial&quot;:true}"></div></div></div><div class="toc desktop-only"><button type="button" class="toc-header" aria-controls="toc-51" aria-expanded="true"><h3>Table of Contents</h3><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><ul id="list-1" class="toc-content overflow"><li class="depth-0"><a href="#fusabi-parallel-orchestration-plan-" data-for="fusabi-parallel-orchestration-plan-">Fusabi Parallel Orchestration Plan 🚀</a></li><li class="depth-1"><a href="#executive-summary" data-for="executive-summary">Executive Summary</a></li><li class="depth-1"><a href="#current-state-analysis" data-for="current-state-analysis">Current State Analysis</a></li><li class="depth-2"><a href="#-whats-complete" data-for="-whats-complete">✅ What’s Complete</a></li><li class="depth-2"><a href="#️-whats-partial" data-for="️-whats-partial">⚠️ What’s Partial</a></li><li class="depth-2"><a href="#-whats-missing" data-for="-whats-missing">❌ What’s Missing</a></li><li class="depth-2"><a href="#-failing-prs" data-for="-failing-prs">🔥 Failing PRs</a></li><li class="depth-1"><a href="#parallel-orchestration-strategy" data-for="parallel-orchestration-strategy">Parallel Orchestration Strategy</a></li><li class="depth-2"><a href="#core-principles-from-dgx-pixels" data-for="core-principles-from-dgx-pixels">Core Principles (From dgx-pixels)</a></li><li class="depth-1"><a href="#workstream-definitions" data-for="workstream-definitions">Workstream Definitions</a></li><li class="depth-2"><a href="#-critical-path-week-1---parallel-execution" data-for="-critical-path-week-1---parallel-execution">🔴 Critical Path (Week 1 - Parallel Execution)</a></li><li class="depth-2"><a href="#-high-priority-week-2---sequential-after-critical" data-for="-high-priority-week-2---sequential-after-critical">🟡 High Priority (Week 2 - Sequential After Critical)</a></li><li class="depth-2"><a href="#-medium-priority-week-3---parallel-execution" data-for="-medium-priority-week-3---parallel-execution">🟢 Medium Priority (Week 3 - Parallel Execution)</a></li><li class="depth-2"><a href="#-low-priority-week-4---documentation--polish" data-for="-low-priority-week-4---documentation--polish">🔵 Low Priority (Week 4 - Documentation &amp; Polish)</a></li><li class="depth-1"><a href="#execution-timeline" data-for="execution-timeline">Execution Timeline</a></li><li class="depth-2"><a href="#week-1-critical-path-parallel" data-for="week-1-critical-path-parallel">Week 1: Critical Path (Parallel)</a></li><li class="depth-2"><a href="#week-2-high-priority-sequential-then-parallel" data-for="week-2-high-priority-sequential-then-parallel">Week 2: High Priority (Sequential then Parallel)</a></li><li class="depth-2"><a href="#week-3-medium-priority-parallel" data-for="week-3-medium-priority-parallel">Week 3: Medium Priority (Parallel)</a></li><li class="depth-2"><a href="#week-4-low-priority-documentation" data-for="week-4-low-priority-documentation">Week 4: Low Priority (Documentation)</a></li><li class="depth-1"><a href="#git-hygiene-protocol" data-for="git-hygiene-protocol">Git Hygiene Protocol</a></li><li class="depth-2"><a href="#branch-naming-convention" data-for="branch-naming-convention">Branch Naming Convention</a></li><li class="depth-2"><a href="#commit-message-format" data-for="commit-message-format">Commit Message Format</a></li><li class="depth-2"><a href="#pull-request-template" data-for="pull-request-template">Pull Request Template</a></li><li class="depth-2"><a href="#review-process" data-for="review-process">Review Process</a></li><li class="depth-2"><a href="#squash-merge-policy" data-for="squash-merge-policy">Squash Merge Policy</a></li><li class="depth-1"><a href="#agent-execution-instructions" data-for="agent-execution-instructions">Agent Execution Instructions</a></li><li class="depth-2"><a href="#for-each-workstream-agent" data-for="for-each-workstream-agent">For Each Workstream Agent</a></li><li class="depth-1"><a href="#parallel-execution-matrix" data-for="parallel-execution-matrix">Parallel Execution Matrix</a></li><li class="depth-1"><a href="#success-metrics" data-for="success-metrics">Success Metrics</a></li><li class="depth-2"><a href="#code-quality" data-for="code-quality">Code Quality</a></li><li class="depth-2"><a href="#performance" data-for="performance">Performance</a></li><li class="depth-2"><a href="#completeness" data-for="completeness">Completeness</a></li><li class="depth-2"><a href="#documentation" data-for="documentation">Documentation</a></li><li class="depth-1"><a href="#risk-mitigation" data-for="risk-mitigation">Risk Mitigation</a></li><li class="depth-2"><a href="#risk-1-gc-implementation-complexity" data-for="risk-1-gc-implementation-complexity">Risk 1: GC Implementation Complexity</a></li><li class="depth-2"><a href="#risk-2-recordsdus-execution-uncertain" data-for="risk-2-recordsdus-execution-uncertain">Risk 2: Records/DUs Execution Uncertain</a></li><li class="depth-2"><a href="#risk-3-pr-merge-conflicts" data-for="risk-3-pr-merge-conflicts">Risk 3: PR Merge Conflicts</a></li><li class="depth-2"><a href="#risk-4-ci-pipeline-failures" data-for="risk-4-ci-pipeline-failures">Risk 4: CI Pipeline Failures</a></li><li class="depth-1"><a href="#post-completion" data-for="post-completion">Post-Completion</a></li><li class="depth-2"><a href="#after-all-workstreams-complete" data-for="after-all-workstreams-complete">After All Workstreams Complete</a></li><li class="depth-1"><a href="#monitoring--reporting" data-for="monitoring--reporting">Monitoring &amp; Reporting</a></li><li class="depth-2"><a href="#daily-standup-automated" data-for="daily-standup-automated">Daily Standup (Automated)</a></li><li class="depth-2"><a href="#weekly-summary" data-for="weekly-summary">Weekly Summary</a></li><li class="depth-2"><a href="#completion-report" data-for="completion-report">Completion Report</a></li><li class="overflow-end"></li></ul></div><div class="backlinks"><h3>Backlinks</h3><ul id="list-2" class="overflow"><li><a href="../../../projects/fusabi/docs/execution-instructions" class="internal">execution-instructions</a></li><li class="overflow-end"></li></ul></div></div><footer class><p>Created with <a href="https://quartz.jzhao.xyz/">Quartz v4.5.2</a> © 2025</p><ul><li><a href="https://github.com/fusabi-lang/docs">GitHub</a></li><li><a href="https://github.com/fusabi-lang">Fusabi Lang</a></li></ul></footer></div></div></body><script type="application/javascript">function n(){let t=this.parentElement;t.classList.toggle("is-collapsed");let e=t.getElementsByClassName("callout-content")[0];if(!e)return;let l=t.classList.contains("is-collapsed");e.style.gridTemplateRows=l?"0fr":"1fr"}function c(){let t=document.getElementsByClassName("callout is-collapsible");for(let e of t){let l=e.getElementsByClassName("callout-title")[0],s=e.getElementsByClassName("callout-content")[0];if(!l||!s)continue;l.addEventListener("click",n),window.addCleanup(()=>l.removeEventListener("click",n));let o=e.classList.contains("is-collapsed");s.style.gridTemplateRows=o?"0fr":"1fr"}}document.addEventListener("nav",c);
+</script><script type="module">function f(i,e){if(!i)return;function r(o){o.target===this&&(o.preventDefault(),o.stopPropagation(),e())}function t(o){o.key.startsWith("Esc")&&(o.preventDefault(),e())}i?.addEventListener("click",r),window.addCleanup(()=>i?.removeEventListener("click",r)),document.addEventListener("keydown",t),window.addCleanup(()=>document.removeEventListener("keydown",t))}function y(i){for(;i.firstChild;)i.removeChild(i.firstChild)}var h=class{constructor(e,r){this.container=e;this.content=r;this.setupEventListeners(),this.setupNavigationControls(),this.resetTransform()}isDragging=!1;startPan={x:0,y:0};currentPan={x:0,y:0};scale=1;MIN_SCALE=.5;MAX_SCALE=3;cleanups=[];setupEventListeners(){let e=this.onMouseDown.bind(this),r=this.onMouseMove.bind(this),t=this.onMouseUp.bind(this),o=this.resetTransform.bind(this);this.container.addEventListener("mousedown",e),document.addEventListener("mousemove",r),document.addEventListener("mouseup",t),window.addEventListener("resize",o),this.cleanups.push(()=>this.container.removeEventListener("mousedown",e),()=>document.removeEventListener("mousemove",r),()=>document.removeEventListener("mouseup",t),()=>window.removeEventListener("resize",o))}cleanup(){for(let e of this.cleanups)e()}setupNavigationControls(){let e=document.createElement("div");e.className="mermaid-controls";let r=this.createButton("+",()=>this.zoom(.1)),t=this.createButton("-",()=>this.zoom(-.1)),o=this.createButton("Reset",()=>this.resetTransform());e.appendChild(t),e.appendChild(o),e.appendChild(r),this.container.appendChild(e)}createButton(e,r){let t=document.createElement("button");return t.textContent=e,t.className="mermaid-control-button",t.addEventListener("click",r),window.addCleanup(()=>t.removeEventListener("click",r)),t}onMouseDown(e){e.button===0&&(this.isDragging=!0,this.startPan={x:e.clientX-this.currentPan.x,y:e.clientY-this.currentPan.y},this.container.style.cursor="grabbing")}onMouseMove(e){this.isDragging&&(e.preventDefault(),this.currentPan={x:e.clientX-this.startPan.x,y:e.clientY-this.startPan.y},this.updateTransform())}onMouseUp(){this.isDragging=!1,this.container.style.cursor="grab"}zoom(e){let r=Math.min(Math.max(this.scale+e,this.MIN_SCALE),this.MAX_SCALE),t=this.content.getBoundingClientRect(),o=t.width/2,n=t.height/2,c=r-this.scale;this.currentPan.x-=o*c,this.currentPan.y-=n*c,this.scale=r,this.updateTransform()}updateTransform(){this.content.style.transform=`translate(${this.currentPan.x}px, ${this.currentPan.y}px) scale(${this.scale})`}resetTransform(){this.scale=1;let e=this.content.querySelector("svg");this.currentPan={x:e.getBoundingClientRect().width/2,y:e.getBoundingClientRect().height/2},this.updateTransform()}},C=["--secondary","--tertiary","--gray","--light","--lightgray","--highlight","--dark","--darkgray","--codeFont"],E;document.addEventListener("nav",async()=>{let e=document.querySelector(".center").querySelectorAll("code.mermaid");if(e.length===0)return;E||=await import("https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.4.0/mermaid.esm.min.mjs");let r=E.default,t=new WeakMap;for(let n of e)t.set(n,n.innerText);async function o(){for(let s of e){s.removeAttribute("data-processed");let a=t.get(s);a&&(s.innerHTML=a)}let n=C.reduce((s,a)=>(s[a]=window.getComputedStyle(document.documentElement).getPropertyValue(a),s),{}),c=document.documentElement.getAttribute("saved-theme")==="dark";r.initialize({startOnLoad:!1,securityLevel:"loose",theme:c?"dark":"base",themeVariables:{fontFamily:n["--codeFont"],primaryColor:n["--light"],primaryTextColor:n["--darkgray"],primaryBorderColor:n["--tertiary"],lineColor:n["--darkgray"],secondaryColor:n["--secondary"],tertiaryColor:n["--tertiary"],clusterBkg:n["--light"],edgeLabelBackground:n["--highlight"]}}),await r.run({nodes:e})}await o(),document.addEventListener("themechange",o),window.addCleanup(()=>document.removeEventListener("themechange",o));for(let n=0;n<e.length;n++){let v=function(){let g=l.querySelector("#mermaid-space"),m=l.querySelector(".mermaid-content");if(!m)return;y(m);let w=c.querySelector("svg").cloneNode(!0);m.appendChild(w),l.classList.add("active"),g.style.cursor="grab",u=new h(g,m)},M=function(){l.classList.remove("active"),u?.cleanup(),u=null},c=e[n],s=c.parentElement,a=s.querySelector(".clipboard-button"),d=s.querySelector(".expand-button"),p=window.getComputedStyle(a),L=a.offsetWidth+parseFloat(p.marginLeft||"0")+parseFloat(p.marginRight||"0");d.style.right=`calc(${L}px + 0.3rem)`,s.prepend(d);let l=s.querySelector("#mermaid-container");if(!l)return;let u=null;d.addEventListener("click",v),f(l,M),window.addCleanup(()=>{u?.cleanup(),d.removeEventListener("click",v)})}});
+</script><script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/copy-tex.min.js" type="application/javascript"></script><script src="../../../postscript.js" type="module"></script></html>

@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr"><head><title>readme</title><meta charset="utf-8"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted Grotesk:wght@400;700&amp;family=Source Sans Pro:ital,wght@0,400;0,600;1,400;1,600&amp;family=IBM Plex Mono:wght@400;600&amp;display=swap"/><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin="anonymous"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="og:site_name" content="Fusabi Lang Documentation"/><meta property="og:title" content="readme"/><meta property="og:type" content="website"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="readme"/><meta name="twitter:description" content="Fusabi Phase 2 Feature Workstreams This directory contains all GitHub issues for Phase 2: Language Features (Weeks 4-7)."/><meta property="og:description" content="Fusabi Phase 2 Feature Workstreams This directory contains all GitHub issues for Phase 2: Language Features (Weeks 4-7)."/><meta property="og:image:alt" content="Fusabi Phase 2 Feature Workstreams This directory contains all GitHub issues for Phase 2: Language Features (Weeks 4-7)."/><meta property="twitter:domain" content="fusabi-lang.github.io/docs"/><meta property="og:url" content="https://fusabi-lang.github.io/docs/projects/fusabi/docs/workstreams/phase-2-features/readme"/><meta property="twitter:url" content="https://fusabi-lang.github.io/docs/projects/fusabi/docs/workstreams/phase-2-features/readme"/><link rel="icon" href="../../../../../static/icon.png"/><meta name="description" content="Fusabi Phase 2 Feature Workstreams This directory contains all GitHub issues for Phase 2: Language Features (Weeks 4-7)."/><meta name="generator" content="Quartz"/><link href="../../../../../index.css" rel="stylesheet" type="text/css" spa-preserve/><style>.expand-button {
+  position: absolute;
+  display: flex;
+  float: right;
+  padding: 0.4rem;
+  margin: 0.3rem;
+  right: 0;
+  color: var(--gray);
+  border-color: var(--dark);
+  background-color: var(--light);
+  border: 1px solid;
+  border-radius: 5px;
+  opacity: 0;
+  transition: 0.2s;
+}
+.expand-button > svg {
+  fill: var(--light);
+  filter: contrast(0.3);
+}
+.expand-button:hover {
+  cursor: pointer;
+  border-color: var(--secondary);
+}
+.expand-button:focus {
+  outline: 0;
+}
+
+pre:hover > .expand-button {
+  opacity: 1;
+  transition: 0.2s;
+}
+
+#mermaid-container {
+  position: fixed;
+  contain: layout;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: none;
+  backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.5);
+}
+#mermaid-container.active {
+  display: inline-block;
+}
+#mermaid-container > #mermaid-space {
+  border: 1px solid var(--lightgray);
+  background-color: var(--light);
+  border-radius: 5px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 80vh;
+  width: 80vw;
+  overflow: hidden;
+}
+#mermaid-container > #mermaid-space > .mermaid-content {
+  padding: 2rem;
+  position: relative;
+  transform-origin: 0 0;
+  transition: transform 0.1s ease;
+  overflow: visible;
+  min-height: 200px;
+  min-width: 200px;
+}
+#mermaid-container > #mermaid-space > .mermaid-content pre {
+  margin: 0;
+  border: none;
+}
+#mermaid-container > #mermaid-space > .mermaid-content svg {
+  max-width: none;
+  height: auto;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  background: var(--light);
+  border: 1px solid var(--lightgray);
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid var(--lightgray);
+  background: var(--light);
+  color: var(--dark);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: var(--bodyFont);
+  transition: all 0.2s ease;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:hover {
+  background: var(--lightgray);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:active {
+  transform: translateY(1px);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:nth-child(2) {
+  width: auto;
+  padding: 0 12px;
+  font-size: 14px;
+}
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VSb290IjoiL2hvbWUvcnVubmVyL3dvcmsvZG9jcy9kb2NzL3F1YXJ0ei9jb21wb25lbnRzL3N0eWxlcyIsInNvdXJjZXMiOlsibWVybWFpZC5pbmxpbmUuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7RUFDQTs7QUFHRjtFQUNFO0VBQ0E7O0FBR0Y7RUFDRTs7O0FBS0Y7RUFDRTtFQUNBOzs7QUFJSjtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTs7QUFHRjtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBOztBQUdGO0VBQ0U7RUFDQTs7QUFJSjtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7O0FBR0Y7RUFDRTs7QUFJRjtFQUNFO0VBQ0E7RUFDQSIsInNvdXJjZXNDb250ZW50IjpbIi5leHBhbmQtYnV0dG9uIHtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbG9hdDogcmlnaHQ7XG4gIHBhZGRpbmc6IDAuNHJlbTtcbiAgbWFyZ2luOiAwLjNyZW07XG4gIHJpZ2h0OiAwOyAvLyBOT1RFOiByaWdodCB3aWxsIGJlIHNldCBpbiBtZXJtYWlkLmlubGluZS50c1xuICBjb2xvcjogdmFyKC0tZ3JheSk7XG4gIGJvcmRlci1jb2xvcjogdmFyKC0tZGFyayk7XG4gIGJhY2tncm91bmQtY29sb3I6IHZhcigtLWxpZ2h0KTtcbiAgYm9yZGVyOiAxcHggc29saWQ7XG4gIGJvcmRlci1yYWRpdXM6IDVweDtcbiAgb3BhY2l0eTogMDtcbiAgdHJhbnNpdGlvbjogMC4ycztcblxuICAmID4gc3ZnIHtcbiAgICBmaWxsOiB2YXIoLS1saWdodCk7XG4gICAgZmlsdGVyOiBjb250cmFzdCgwLjMpO1xuICB9XG5cbiAgJjpob3ZlciB7XG4gICAgY3Vyc29yOiBwb2ludGVyO1xuICAgIGJvcmRlci1jb2xvcjogdmFyKC0tc2Vjb25kYXJ5KTtcbiAgfVxuXG4gICY6Zm9jdXMge1xuICAgIG91dGxpbmU6IDA7XG4gIH1cbn1cblxucHJlIHtcbiAgJjpob3ZlciA+IC5leHBhbmQtYnV0dG9uIHtcbiAgICBvcGFjaXR5OiAxO1xuICAgIHRyYW5zaXRpb246IDAuMnM7XG4gIH1cbn1cblxuI21lcm1haWQtY29udGFpbmVyIHtcbiAgcG9zaXRpb246IGZpeGVkO1xuICBjb250YWluOiBsYXlvdXQ7XG4gIHotaW5kZXg6IDk5OTtcbiAgbGVmdDogMDtcbiAgdG9wOiAwO1xuICB3aWR0aDogMTAwdnc7XG4gIGhlaWdodDogMTAwdmg7XG4gIG92ZXJmbG93OiBoaWRkZW47XG4gIGRpc3BsYXk6IG5vbmU7XG4gIGJhY2tkcm9wLWZpbHRlcjogYmx1cig0cHgpO1xuICBiYWNrZ3JvdW5kOiByZ2JhKDAsIDAsIDAsIDAuNSk7XG5cbiAgJi5hY3RpdmUge1xuICAgIGRpc3BsYXk6IGlubGluZS1ibG9jaztcbiAgfVxuXG4gICYgPiAjbWVybWFpZC1zcGFjZSB7XG4gICAgYm9yZGVyOiAxcHggc29saWQgdmFyKC0tbGlnaHRncmF5KTtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1saWdodCk7XG4gICAgYm9yZGVyLXJhZGl1czogNXB4O1xuICAgIHBvc2l0aW9uOiBmaXhlZDtcbiAgICB0b3A6IDUwJTtcbiAgICBsZWZ0OiA1MCU7XG4gICAgdHJhbnNmb3JtOiB0cmFuc2xhdGUoLTUwJSwgLTUwJSk7XG4gICAgaGVpZ2h0OiA4MHZoO1xuICAgIHdpZHRoOiA4MHZ3O1xuICAgIG92ZXJmbG93OiBoaWRkZW47XG5cbiAgICAmID4gLm1lcm1haWQtY29udGVudCB7XG4gICAgICBwYWRkaW5nOiAycmVtO1xuICAgICAgcG9zaXRpb246IHJlbGF0aXZlO1xuICAgICAgdHJhbnNmb3JtLW9yaWdpbjogMCAwO1xuICAgICAgdHJhbnNpdGlvbjogdHJhbnNmb3JtIDAuMXMgZWFzZTtcbiAgICAgIG92ZXJmbG93OiB2aXNpYmxlO1xuICAgICAgbWluLWhlaWdodDogMjAwcHg7XG4gICAgICBtaW4td2lkdGg6IDIwMHB4O1xuXG4gICAgICBwcmUge1xuICAgICAgICBtYXJnaW46IDA7XG4gICAgICAgIGJvcmRlcjogbm9uZTtcbiAgICAgIH1cblxuICAgICAgc3ZnIHtcbiAgICAgICAgbWF4LXdpZHRoOiBub25lO1xuICAgICAgICBoZWlnaHQ6IGF1dG87XG4gICAgICB9XG4gICAgfVxuXG4gICAgJiA+IC5tZXJtYWlkLWNvbnRyb2xzIHtcbiAgICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgICAgIGJvdHRvbTogMjBweDtcbiAgICAgIHJpZ2h0OiAyMHB4O1xuICAgICAgZGlzcGxheTogZmxleDtcbiAgICAgIGdhcDogOHB4O1xuICAgICAgcGFkZGluZzogOHB4O1xuICAgICAgYmFja2dyb3VuZDogdmFyKC0tbGlnaHQpO1xuICAgICAgYm9yZGVyOiAxcHggc29saWQgdmFyKC0tbGlnaHRncmF5KTtcbiAgICAgIGJvcmRlci1yYWRpdXM6IDZweDtcbiAgICAgIGJveC1zaGFkb3c6IDAgMnB4IDRweCByZ2JhKDAsIDAsIDAsIDAuMSk7XG4gICAgICB6LWluZGV4OiAyO1xuXG4gICAgICAubWVybWFpZC1jb250cm9sLWJ1dHRvbiB7XG4gICAgICAgIGRpc3BsYXk6IGZsZXg7XG4gICAgICAgIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG4gICAgICAgIGp1c3RpZnktY29udGVudDogY2VudGVyO1xuICAgICAgICB3aWR0aDogMzJweDtcbiAgICAgICAgaGVpZ2h0OiAzMnB4O1xuICAgICAgICBwYWRkaW5nOiAwO1xuICAgICAgICBib3JkZXI6IDFweCBzb2xpZCB2YXIoLS1saWdodGdyYXkpO1xuICAgICAgICBiYWNrZ3JvdW5kOiB2YXIoLS1saWdodCk7XG4gICAgICAgIGNvbG9yOiB2YXIoLS1kYXJrKTtcbiAgICAgICAgYm9yZGVyLXJhZGl1czogNHB4O1xuICAgICAgICBjdXJzb3I6IHBvaW50ZXI7XG4gICAgICAgIGZvbnQtc2l6ZTogMTZweDtcbiAgICAgICAgZm9udC1mYW1pbHk6IHZhcigtLWJvZHlGb250KTtcbiAgICAgICAgdHJhbnNpdGlvbjogYWxsIDAuMnMgZWFzZTtcblxuICAgICAgICAmOmhvdmVyIHtcbiAgICAgICAgICBiYWNrZ3JvdW5kOiB2YXIoLS1saWdodGdyYXkpO1xuICAgICAgICB9XG5cbiAgICAgICAgJjphY3RpdmUge1xuICAgICAgICAgIHRyYW5zZm9ybTogdHJhbnNsYXRlWSgxcHgpO1xuICAgICAgICB9XG5cbiAgICAgICAgLy8gU3R5bGUgdGhlIHJlc2V0IGJ1dHRvbiBkaWZmZXJlbnRseVxuICAgICAgICAmOm50aC1jaGlsZCgyKSB7XG4gICAgICAgICAgd2lkdGg6IGF1dG87XG4gICAgICAgICAgcGFkZGluZzogMCAxMnB4O1xuICAgICAgICAgIGZvbnQtc2l6ZTogMTRweDtcbiAgICAgICAgfVxuICAgICAgfVxuICAgIH1cbiAgfVxufVxuIl19 */</style><link href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" rel="stylesheet" type="text/css" spa-preserve/><script src="../../../../../prescript.js" type="application/javascript" spa-preserve></script><script type="application/javascript" spa-preserve>const fetchData = fetch("../../../../../static/contentIndex.json").then(data => data.json())</script><link rel="alternate" type="application/rss+xml" title="RSS Feed" href="https://fusabi-lang.github.io/docs/index.xml"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:image" content="https://fusabi-lang.github.io/docs/projects/fusabi/docs/workstreams/phase-2-features/readme-og-image.webp"/><meta property="og:image:url" content="https://fusabi-lang.github.io/docs/projects/fusabi/docs/workstreams/phase-2-features/readme-og-image.webp"/><meta name="twitter:image" content="https://fusabi-lang.github.io/docs/projects/fusabi/docs/workstreams/phase-2-features/readme-og-image.webp"/><meta property="og:image:type" content="image/.webp"/></head><body data-slug="projects/fusabi/docs/workstreams/phase-2-features/readme"><div id="quartz-root" class="page"><div id="quartz-body"><div class="left sidebar"><h2 class="page-title"><a href="../../../../..">Fusabi Lang Documentation</a></h2><div class="spacer mobile-only"></div><div class="flex-component" style="flex-direction: row; flex-wrap: nowrap; gap: 1rem;"><div style="flex-grow: 1; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><div class="search"><button class="search-button"><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title>Search</title><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"></path><circle cx="8" cy="8" r="7"></circle></g></svg><p>Search</p></button><div class="search-container"><div class="search-space"><input autocomplete="off" class="search-bar" name="search" type="text" aria-label="Search for something" placeholder="Search for something"/><div class="search-layout" data-preview="true"></div></div></div></div></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="darkmode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35" xml:space="preserve" aria-label="Dark mode"><title>Dark mode</title><path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100" xml:space="preserve" aria-label="Light mode"><title>Light mode</title><path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z"></path></svg></button></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="readermode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="readerIcon" fill="currentColor" stroke="currentColor" stroke-width="0.2" stroke-linecap="round" stroke-linejoin="round" width="64px" height="64px" viewBox="0 0 24 24" aria-label="Reader mode"><title>Reader mode</title><g transform="translate(-1.8, -1.8) scale(1.15, 1.2)"><path d="M8.9891247,2.5 C10.1384702,2.5 11.2209868,2.96705384 12.0049645,3.76669482 C12.7883914,2.96705384 13.8709081,2.5 15.0202536,2.5 L18.7549359,2.5 C19.1691495,2.5 19.5049359,2.83578644 19.5049359,3.25 L19.5046891,4.004 L21.2546891,4.00457396 C21.6343849,4.00457396 21.9481801,4.28672784 21.9978425,4.6528034 L22.0046891,4.75457396 L22.0046891,20.25 C22.0046891,20.6296958 21.7225353,20.943491 21.3564597,20.9931534 L21.2546891,21 L2.75468914,21 C2.37499337,21 2.06119817,20.7178461 2.01153575,20.3517706 L2.00468914,20.25 L2.00468914,4.75457396 C2.00468914,4.37487819 2.28684302,4.061083 2.65291858,4.01142057 L2.75468914,4.00457396 L4.50368914,4.004 L4.50444233,3.25 C4.50444233,2.87030423 4.78659621,2.55650904 5.15267177,2.50684662 L5.25444233,2.5 L8.9891247,2.5 Z M4.50368914,5.504 L3.50468914,5.504 L3.50468914,19.5 L10.9478955,19.4998273 C10.4513189,18.9207296 9.73864328,18.5588115 8.96709342,18.5065584 L8.77307039,18.5 L5.25444233,18.5 C4.87474657,18.5 4.56095137,18.2178461 4.51128895,17.8517706 L4.50444233,17.75 L4.50368914,5.504 Z M19.5049359,17.75 C19.5049359,18.1642136 19.1691495,18.5 18.7549359,18.5 L15.2363079,18.5 C14.3910149,18.5 13.5994408,18.8724714 13.0614828,19.4998273 L20.5046891,19.5 L20.5046891,5.504 L19.5046891,5.504 L19.5049359,17.75 Z M18.0059359,3.999 L15.0202536,4 L14.8259077,4.00692283 C13.9889509,4.06666544 13.2254227,4.50975805 12.7549359,5.212 L12.7549359,17.777 L12.7782651,17.7601316 C13.4923805,17.2719483 14.3447024,17 15.2363079,17 L18.0059359,16.999 L18.0056891,4.798 L18.0033792,4.75457396 L18.0056891,4.71 L18.0059359,3.999 Z M8.9891247,4 L6.00368914,3.999 L6.00599909,4.75457396 L6.00599909,4.75457396 L6.00368914,4.783 L6.00368914,16.999 L8.77307039,17 C9.57551536,17 10.3461406,17.2202781 11.0128313,17.6202194 L11.2536891,17.776 L11.2536891,5.211 C10.8200889,4.56369974 10.1361548,4.13636104 9.37521067,4.02745763 L9.18347055,4.00692283 L8.9891247,4 Z"></path></g></svg></button></div></div><div class="explorer" data-behavior="link" data-collapsed="collapsed" data-savestate="true" data-data-fns="{&quot;order&quot;:[&quot;filter&quot;,&quot;map&quot;,&quot;sort&quot;],&quot;sortFn&quot;:&quot;(a,b)=>!a.isFolder&amp;&amp;!b.isFolder||a.isFolder&amp;&amp;b.isFolder?a.displayName.localeCompare(b.displayName,void 0,{numeric:!0,sensitivity:\&quot;base\&quot;}):!a.isFolder&amp;&amp;b.isFolder?1:-1&quot;,&quot;filterFn&quot;:&quot;node=>node.slugSegment!==\&quot;tags\&quot;&quot;,&quot;mapFn&quot;:&quot;node=>node&quot;}"><button type="button" class="explorer-toggle mobile-explorer hide-until-loaded" data-mobile="true" aria-controls="explorer-132"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-menu"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg></button><button type="button" class="title-button explorer-toggle desktop-explorer" data-mobile="false" aria-expanded="true"><h2>Explorer</h2><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div id="explorer-132" class="explorer-content" aria-expanded="false" role="group"><ul class="explorer-ul overflow" id="list-0"><li class="overflow-end"></li></ul></div><template id="template-file"><li><a href="#"></a></li></template><template id="template-folder"><li><div class="folder-container"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="folder-icon"><polyline points="6 9 12 15 18 9"></polyline></svg><div><button class="folder-button"><span class="folder-title"></span></button></div></div><div class="folder-outer"><ul class="content"></ul></div></li></template></div></div><div class="center"><div class="page-header"><div class="popover-hint"><nav class="breadcrumb-container" aria-label="breadcrumbs"><div class="breadcrumb-element"><a href="../../../../../">Home</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../../../../projects/">Projects</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../../../../projects/fusabi/">fusabi</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../../../../projects/fusabi/docs/">docs</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../../../../projects/fusabi/docs/workstreams/">workstreams</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../../../../projects/fusabi/docs/workstreams/phase-2-features/">phase 2 features</a><p> ❯ </p></div><div class="breadcrumb-element"><a href>readme</a></div></nav><h1 class="article-title">readme</h1><p show-comma="true" class="content-meta"><time datetime="2025-11-30T03:25:20.649Z">Nov 30, 2025</time><span>6 min read</span></p><ul class="tags"><li><a href="../../../../../tags/012-014" class="internal tag-link">012-014</a></li><li><a href="../../../../../tags/015-017" class="internal tag-link">015-017</a></li><li><a href="../../../../../tags/018-019" class="internal tag-link">018-019</a></li><li><a href="../../../../../tags/020-021" class="internal tag-link">020-021</a></li></ul></div></div><article class="popover-hint"><h1 id="fusabi-phase-2-feature-workstreams">Fusabi Phase 2 Feature Workstreams<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#fusabi-phase-2-feature-workstreams" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<p>This directory contains all GitHub issues for Phase 2: Language Features (Weeks 4-7).</p>
+<h2 id="overview">Overview<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#overview" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p><strong>Objective</strong>: Extend the language to support essential functional programming features: closures, data structures, pattern matching, and type inference.</p>
+<p>Phase 2 builds on the Phase 1 MVP to create a production-ready functional scripting language with F#-style ergonomics.</p>
+<h2 id="issue-organization">Issue Organization<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#issue-organization" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<pre><code>docs/workstreams/phase-2-features/
+├── README.md                     # This file
+├── DEPENDENCIES.md               # Dependency graph
+├── PARALLELIZATION.md            # Parallel work guide
+├── 012-closure-support.md        # Closure implementation
+├── 013-let-rec-bindings.md       # Recursive functions
+├── 014-currying-partial-app.md   # Currying and partial application
+├── 015-tuple-support.md          # Tuple data structures
+├── 016-list-support.md           # List data structures
+├── 017-array-support.md          # Array data structures (optional)
+├── 018-pattern-matching.md       # Pattern matching expressions
+├── 019-pattern-compiler.md       # Pattern match compilation
+├── 020-type-inference.md         # Hindley-Milner type inference
+└── 021-type-checker.md           # Type checking and validation
+</code></pre>
+<h2 id="phase-2-goals">Phase 2 Goals<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#phase-2-goals" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="success-criteria">Success Criteria<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#success-criteria" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>Execute closures with proper variable capture</li>
+<li>Run recursive and mutually recursive functions</li>
+<li>Use tuples, lists, and arrays in scripts</li>
+<li>Pattern match over data structures</li>
+<li>Infer types for polymorphic functions</li>
+<li>Reject ill-typed programs before compilation</li>
+<li>150+ total unit tests passing</li>
+<li>All examples from language spec working</li>
+</ul>
+<h2 id="milestone-breakdown">Milestone Breakdown<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#milestone-breakdown" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Milestone</th><th>Duration</th><th>Issues</th><th>Description</th></tr></thead><tbody><tr><td><strong>2.1: Functions &amp; Closures</strong></td><td>Week 4</td><td><a href="../../../../.././../../../../tags/012-014" class="tag-link internal alias" data-slug="tags/012-014">012-014</a></td><td>Closures, let-rec, currying</td></tr><tr><td><strong>2.2: Data Structures</strong></td><td>Week 5</td><td><a href="../../../../.././../../../../tags/015-017" class="tag-link internal alias" data-slug="tags/015-017">015-017</a></td><td>Tuples, lists, arrays</td></tr><tr><td><strong>2.3: Pattern Matching</strong></td><td>Week 6</td><td><a href="../../../../.././../../../../tags/018-019" class="tag-link internal alias" data-slug="tags/018-019">018-019</a></td><td>Match expressions, compilation</td></tr><tr><td><strong>2.4: Type System</strong></td><td>Week 7</td><td><a href="../../../../.././../../../../tags/020-021" class="tag-link internal alias" data-slug="tags/020-021">020-021</a></td><td>Type inference, checking</td></tr></tbody></table></div>
+<p><strong>Total</strong>: 10 issues across 4 weeks</p>
+<h2 id="parallel-tracks-3-developers">Parallel Tracks (3 Developers)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#parallel-tracks-3-developers" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Phase 2 is organized into 3 parallel development tracks that minimize conflicts:</p>
+<h3 id="track-a-frontend-extensions-dev-1">Track A: Frontend Extensions (Dev 1)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#track-a-frontend-extensions-dev-1" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p><strong>Focus</strong>: AST, Parser, Type System</p>
+<p><strong>Week 4</strong>:</p>
+<ul>
+<li>#013: Let-Rec Bindings (3-4 days)</li>
+<li>Support #012 with parser changes</li>
+</ul>
+<p><strong>Week 5</strong>:</p>
+<ul>
+<li>#015: Tuple Support (3-4 days)</li>
+<li>#016: List Support (2-3 days - parallel end)</li>
+</ul>
+<p><strong>Week 6</strong>:</p>
+<ul>
+<li>#018: Pattern Matching (4-5 days - AST/Parser)</li>
+</ul>
+<p><strong>Week 7</strong>:</p>
+<ul>
+<li>#020: Type Inference (5-6 days - CRITICAL)</li>
+</ul>
+<p><strong>Skills</strong>: Parser design, type theory, AST transformations</p>
+<hr/>
+<h3 id="track-b-vm-runtime-dev-2">Track B: VM Runtime (Dev 2)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#track-b-vm-runtime-dev-2" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p><strong>Focus</strong>: VM, Bytecode, Value System</p>
+<p><strong>Week 4</strong>:</p>
+<ul>
+<li>#012: Closure Support (4-5 days - CRITICAL)</li>
+</ul>
+<p><strong>Week 5</strong>:</p>
+<ul>
+<li>#017: Array Support (2-3 days)</li>
+<li>Support #015, #016 with value types</li>
+</ul>
+<p><strong>Week 6</strong>:</p>
+<ul>
+<li>#019: Pattern Compiler (4-5 days - Bytecode generation)</li>
+</ul>
+<p><strong>Week 7</strong>:</p>
+<ul>
+<li>#021: Type Checker (3-4 days)</li>
+</ul>
+<p><strong>Skills</strong>: VM implementation, bytecode design, runtime optimization</p>
+<hr/>
+<h3 id="track-c-integration--optimization-dev-3">Track C: Integration &amp; Optimization (Dev 3)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#track-c-integration--optimization-dev-3" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p><strong>Focus</strong>: Currying, Integration, Testing</p>
+<p><strong>Week 4</strong>:</p>
+<ul>
+<li>#014: Currying &amp; Partial Application (3-4 days)</li>
+</ul>
+<p><strong>Week 5</strong>:</p>
+<ul>
+<li>Integration testing for data structures</li>
+<li>Performance benchmarks</li>
+</ul>
+<p><strong>Week 6</strong>:</p>
+<ul>
+<li>Pattern matching integration tests</li>
+<li>Example scripts</li>
+</ul>
+<p><strong>Week 7</strong>:</p>
+<ul>
+<li>Type system integration</li>
+<li>End-to-end validation</li>
+<li>Documentation updates</li>
+</ul>
+<p><strong>Skills</strong>: Integration testing, optimization, documentation</p>
+<hr/>
+<h2 id="week-by-week-timeline">Week-by-Week Timeline<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#week-by-week-timeline" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="week-4-functions--closures">Week 4: Functions &amp; Closures<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#week-4-functions--closures" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<pre><code>Dev 1: #013 Let-Rec          ████████░░░░ (3-4d)
+Dev 2: #012 Closures         ████████████ (4-5d) CRITICAL
+Dev 3: #014 Currying         ████████░░░░ (3-4d)
+</code></pre>
+<p><strong>Deliverables</strong>: Recursive functions, closures, partial application</p>
+<hr/>
+<h3 id="week-5-data-structures">Week 5: Data Structures<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#week-5-data-structures" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<pre><code>Dev 1: #015 Tuples           ████████░░░░ (3-4d)
+       #016 Lists            ██████░░░░░░ (2-3d)
+Dev 2: #017 Arrays           ██████░░░░░░ (2-3d)
+       Integration Support   ████░░░░░░░░ (2d)
+Dev 3: Testing &amp; Examples    ████████████ (full week)
+</code></pre>
+<p><strong>Deliverables</strong>: Tuples, lists, arrays, data structure examples</p>
+<hr/>
+<h3 id="week-6-pattern-matching">Week 6: Pattern Matching<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#week-6-pattern-matching" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<pre><code>Dev 1: #018 Match AST        ████████████ (4-5d)
+Dev 2: #019 Pattern Compiler ████████████ (4-5d)
+Dev 3: Integration &amp; Tests   ████████████ (full week)
+</code></pre>
+<p><strong>Deliverables</strong>: Full pattern matching support, decision trees</p>
+<hr/>
+<h3 id="week-7-type-system">Week 7: Type System<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#week-7-type-system" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<pre><code>Dev 1: #020 Type Inference   ████████████ (5-6d) CRITICAL
+Dev 2: #021 Type Checker     ████████░░░░ (3-4d)
+Dev 3: Integration &amp; Polish  ████████████ (full week)
+</code></pre>
+<p><strong>Deliverables</strong>: Hindley-Milner inference, type checking, Phase 2 complete</p>
+<hr/>
+<h2 id="parallelization-strategy">Parallelization Strategy<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#parallelization-strategy" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="parallelizable-work-810-issues-can-parallel">Parallelizable Work (8/10 issues can parallel)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#parallelizable-work-810-issues-can-parallel" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p><strong>Week 4</strong>: All 3 tracks independent</p>
+<ul>
+<li>Frontend: Let-rec (AST changes)</li>
+<li>VM: Closures (Value/VM changes)</li>
+<li>Integration: Currying (uses both)</li>
+</ul>
+<p><strong>Week 5</strong>: Parallel data structure work</p>
+<ul>
+<li>Tuples, Lists, Arrays can be developed simultaneously</li>
+<li>Different value types, minimal conflicts</li>
+</ul>
+<p><strong>Week 6</strong>: Coordinated pattern matching</p>
+<ul>
+<li>AST/Parser work (Track A)</li>
+<li>Bytecode compilation (Track B)</li>
+<li>Clear interface between tracks</li>
+</ul>
+<p><strong>Week 7</strong>: Sequential type system</p>
+<ul>
+<li>Type inference is critical path</li>
+<li>Type checker depends on inference</li>
+<li>Integration work throughout</li>
+</ul>
+<h3 id="file-ownership">File Ownership<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#file-ownership" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Track</th><th>Primary Files</th><th>Crates</th></tr></thead><tbody><tr><td><strong>Frontend</strong></td><td><code>ast.rs</code>, <code>parser.rs</code>, <code>types.rs</code></td><td><code>fusabi-frontend</code></td></tr><tr><td><strong>VM</strong></td><td><code>value.rs</code>, <code>bytecode.rs</code>, <code>vm.rs</code></td><td><code>fusabi-vm</code></td></tr><tr><td><strong>Integration</strong></td><td><code>compiler.rs</code>, <code>main.rs</code>, tests</td><td><code>fusabi-frontend</code>, <code>fusabi-demo</code></td></tr></tbody></table></div>
+<h3 id="conflict-prevention">Conflict Prevention<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#conflict-prevention" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>Each track owns specific modules</li>
+<li>Coordination on shared interfaces</li>
+<li>Daily standups for dependency updates</li>
+<li>PR reviews across tracks</li>
+</ul>
+<h2 id="critical-path-analysis">Critical Path Analysis<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#critical-path-analysis" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="longest-path-24-days">Longest Path: 24 days<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#longest-path-24-days" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<pre><code>#012 Closures (5d) → #018 Pattern AST (5d) → #020 Type Inference (6d) → #021 Type Checker (4d) → Integration (4d)
+</code></pre>
+<p><strong>With 3 developers parallelizing</strong>: ~28 days (4 weeks)</p>
+<h3 id="bottlenecks">Bottlenecks<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#bottlenecks" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ol>
+<li><strong>#012 (Closures)</strong>: Foundational for all advanced features</li>
+<li><strong>#020 (Type Inference)</strong>: Complex, requires closures + data structures</li>
+<li><strong>Pattern matching</strong>: Needs coordination between frontend and VM</li>
+</ol>
+<h3 id="mitigation-strategies">Mitigation Strategies<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#mitigation-strategies" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>Start #012 immediately in Week 4</li>
+<li>Prepare type inference design in Week 5-6</li>
+<li>Incremental integration throughout</li>
+</ul>
+<h2 id="label-system">Label System<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#label-system" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="type-labels">Type Labels<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#type-labels" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li><code>feature</code> - New feature implementation</li>
+<li><code>enhancement</code> - Improvement to existing feature</li>
+<li><code>infrastructure</code> - Build/tooling updates</li>
+</ul>
+<h3 id="priority-labels">Priority Labels<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#priority-labels" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li><code>priority: critical</code> - Blocking, must complete</li>
+<li><code>priority: high</code> - Important for milestone</li>
+<li><code>priority: medium</code> - Normal priority</li>
+</ul>
+<h3 id="status-labels">Status Labels<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#status-labels" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li><code>blocked</code> - Blocked by another issue</li>
+<li><code>in-progress</code> - Currently being worked on</li>
+<li><code>ready-for-review</code> - Awaiting code review</li>
+</ul>
+<h3 id="phase-labels">Phase Labels<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#phase-labels" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li><code>phase-2: features</code> - Phase 2 work</li>
+</ul>
+<h3 id="component-labels">Component Labels<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#component-labels" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li><code>component: frontend</code> - Parser/AST work</li>
+<li><code>component: vm</code> - VM runtime work</li>
+<li><code>component: types</code> - Type system work</li>
+<li><code>component: integration</code> - Cross-component work</li>
+</ul>
+<h3 id="effort-labels">Effort Labels<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#effort-labels" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li><code>effort: s</code> - 1-2 days</li>
+<li><code>effort: m</code> - 2-4 days</li>
+<li><code>effort: l</code> - 4-7 days</li>
+</ul>
+<h3 id="dependency-labels">Dependency Labels<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#dependency-labels" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li><code>parallel-safe</code> - Can work in parallel</li>
+<li><code>foundational</code> - Others depend on this</li>
+<li><code>requires-coordination</code> - Cross-track coordination needed</li>
+</ul>
+<h2 id="development-workflow">Development Workflow<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#development-workflow" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="branch-naming">Branch Naming<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#branch-naming" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<pre><code>feat/issue-012-closure-support
+feat/issue-020-type-inference
+fix/issue-018-pattern-bug
+</code></pre>
+<h3 id="commit-message-format">Commit Message Format<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#commit-message-format" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<pre><code>feat(vm): implement closure support (#012)
+
+- Add Closure value type with upvalues
+- Implement upvalue capture mechanism
+- Add ClosureCall instruction
+- Include comprehensive closure tests
+
+Closes #012
+</code></pre>
+<h3 id="pr-requirements">PR Requirements<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#pr-requirements" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>All tests pass (<code>just test</code>)</li>
+<li>Clippy clean (<code>just lint</code>)</li>
+<li>Formatted (<code>just fmt</code>)</li>
+<li>Documentation updated</li>
+<li>No merge conflicts</li>
+<li>Cross-track review if touching shared code</li>
+</ul>
+<h2 id="getting-started">Getting Started<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#getting-started" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="prerequisites">Prerequisites<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#prerequisites" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>Phase 1 MVP complete</li>
+<li>Rust 1.70+</li>
+<li>Nushell 0.90+</li>
+<li>Just command runner</li>
+</ul>
+<h3 id="workflow">Workflow<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#workflow" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ol>
+<li>Pick issue from assigned track</li>
+<li>Check dependencies are complete</li>
+<li>Create feature branch</li>
+<li>Implement with TDD</li>
+<li>Open draft PR early</li>
+<li>Coordinate with other tracks</li>
+<li>Request review when ready</li>
+<li>Merge and delete branch</li>
+</ol>
+<h2 id="common-commands">Common Commands<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#common-commands" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="bash" data-theme="github-light one-dark-pro"><code data-language="bash" data-theme="github-light one-dark-pro" style="display:grid;"><span data-line><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#7F848E;--shiki-dark-font-style:italic;"># Development</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#61AFEF;">just</span><span style="--shiki-light:#032F62;--shiki-dark:#98C379;"> dev</span><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#7F848E;--shiki-dark-font-style:italic;">                  # Watch mode</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#61AFEF;">just</span><span style="--shiki-light:#032F62;--shiki-dark:#98C379;"> test</span><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#7F848E;--shiki-dark-font-style:italic;">                 # Run all tests</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#61AFEF;">just</span><span style="--shiki-light:#032F62;--shiki-dark:#98C379;"> test-crate</span><span style="--shiki-light:#032F62;--shiki-dark:#98C379;"> fusabi-frontend</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#61AFEF;">just</span><span style="--shiki-light:#032F62;--shiki-dark:#98C379;"> test-crate</span><span style="--shiki-light:#032F62;--shiki-dark:#98C379;"> fusabi-vm</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#7F848E;--shiki-dark-font-style:italic;"># Quality</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#61AFEF;">just</span><span style="--shiki-light:#032F62;--shiki-dark:#98C379;"> check</span><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#7F848E;--shiki-dark-font-style:italic;">                # fmt + lint + test</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#61AFEF;">just</span><span style="--shiki-light:#032F62;--shiki-dark:#98C379;"> fmt</span><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#7F848E;--shiki-dark-font-style:italic;">                  # Format code</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#61AFEF;">just</span><span style="--shiki-light:#032F62;--shiki-dark:#98C379;"> lint</span><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#7F848E;--shiki-dark-font-style:italic;">                 # Run clippy</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#7F848E;--shiki-dark-font-style:italic;"># Examples</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#61AFEF;">just</span><span style="--shiki-light:#032F62;--shiki-dark:#98C379;"> example</span><span style="--shiki-light:#032F62;--shiki-dark:#98C379;"> closures</span><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#7F848E;--shiki-dark-font-style:italic;">     # Run closure examples</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#61AFEF;">just</span><span style="--shiki-light:#032F62;--shiki-dark:#98C379;"> example</span><span style="--shiki-light:#032F62;--shiki-dark:#98C379;"> pattern</span><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#7F848E;--shiki-dark-font-style:italic;">      # Run pattern matching examples</span></span></code></pre></figure>
+<h2 id="success-metrics">Success Metrics<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#success-metrics" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="technical-metrics">Technical Metrics<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#technical-metrics" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>150+ total unit tests (Phase 1 + Phase 2)</li>
+<li>All language spec examples working</li>
+<li>No performance regressions</li>
+<li>Type inference &lt; 100ms for typical scripts</li>
+</ul>
+<h3 id="quality-metrics">Quality Metrics<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#quality-metrics" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>Zero clippy warnings</li>
+<li>100% of public APIs documented</li>
+<li>Clear error messages for type errors</li>
+<li>Comprehensive pattern matching coverage</li>
+</ul>
+<h3 id="integration-metrics">Integration Metrics<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#integration-metrics" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>End-to-end scripts demonstrating all features</li>
+<li>Successful host interop with complex types</li>
+<li>Hot-reload working with new features</li>
+</ul>
+<h2 id="resources">Resources<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#resources" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li><strong><a href="../../../../.././../roadmap" class="internal alias" data-slug="roadmap">roadmap.md</a></strong> - Overall project roadmap</li>
+<li><strong><a href="../../../../.././../02-language-spec" class="internal alias" data-slug="02-language-spec">02-language-spec.md</a></strong> - Language specification</li>
+<li><strong><a href="../../../../.././../03-vm-design" class="internal alias" data-slug="03-vm-design">03-vm-design.md</a></strong> - VM architecture</li>
+<li><strong><a href="../../../../.././phase-1-mvp/README" class="internal alias" data-slug="phase-1-mvp/README">Phase 1 Workstreams</a></strong> - Phase 1 reference</li>
+</ul>
+<h2 id="support">Support<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#support" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li><strong>GitHub Issues</strong>: Bug reports and feature requests</li>
+<li><strong>GitHub Discussions</strong>: Design discussions, Q&amp;A</li>
+<li><strong>claude-config.md</strong>: Claude Code workflow guidance</li>
+</ul>
+<hr/>
+<p><strong>Phase Duration</strong>: 4 weeks (Weeks 4-7)
+<strong>Total Issues</strong>: 10
+<strong>Parallel Capacity</strong>: 3 simultaneous tracks
+<strong>Target Completion</strong>: End of Week 7
+<strong>Estimated Team Velocity</strong>: 2.5 issues/week with parallelization</p></article><hr/><div class="page-footer"></div></div><div class="right sidebar"><div class="graph"><h3>Graph View</h3><div class="graph-outer"><div class="graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:1,&quot;scale&quot;:1.1,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:false,&quot;enableRadial&quot;:false}"></div><button class="global-graph-icon" aria-label="Global Graph"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 55 55" fill="currentColor" xml:space="preserve"><path d="M49,0c-3.309,0-6,2.691-6,6c0,1.035,0.263,2.009,0.726,2.86l-9.829,9.829C32.542,17.634,30.846,17,29,17
+                s-3.542,0.634-4.898,1.688l-7.669-7.669C16.785,10.424,17,9.74,17,9c0-2.206-1.794-4-4-4S9,6.794,9,9s1.794,4,4,4
+                c0.74,0,1.424-0.215,2.019-0.567l7.669,7.669C21.634,21.458,21,23.154,21,25s0.634,3.542,1.688,4.897L10.024,42.562
+                C8.958,41.595,7.549,41,6,41c-3.309,0-6,2.691-6,6s2.691,6,6,6s6-2.691,6-6c0-1.035-0.263-2.009-0.726-2.86l12.829-12.829
+                c1.106,0.86,2.44,1.436,3.898,1.619v10.16c-2.833,0.478-5,2.942-5,5.91c0,3.309,2.691,6,6,6s6-2.691,6-6c0-2.967-2.167-5.431-5-5.91
+                v-10.16c1.458-0.183,2.792-0.759,3.898-1.619l7.669,7.669C41.215,39.576,41,40.26,41,41c0,2.206,1.794,4,4,4s4-1.794,4-4
+                s-1.794-4-4-4c-0.74,0-1.424,0.215-2.019,0.567l-7.669-7.669C36.366,28.542,37,26.846,37,25s-0.634-3.542-1.688-4.897l9.665-9.665
+                C46.042,11.405,47.451,12,49,12c3.309,0,6-2.691,6-6S52.309,0,49,0z M11,9c0-1.103,0.897-2,2-2s2,0.897,2,2s-0.897,2-2,2
+                S11,10.103,11,9z M6,51c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S8.206,51,6,51z M33,49c0,2.206-1.794,4-4,4s-4-1.794-4-4
+                s1.794-4,4-4S33,46.794,33,49z M29,31c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S32.309,31,29,31z M47,41c0,1.103-0.897,2-2,2
+                s-2-0.897-2-2s0.897-2,2-2S47,39.897,47,41z M49,10c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S51.206,10,49,10z"></path></svg></button></div><div class="global-graph-outer"><div class="global-graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:-1,&quot;scale&quot;:0.9,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.2,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:true,&quot;enableRadial&quot;:true}"></div></div></div><div class="toc desktop-only"><button type="button" class="toc-header" aria-controls="toc-101" aria-expanded="true"><h3>Table of Contents</h3><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><ul id="list-1" class="toc-content overflow"><li class="depth-0"><a href="#fusabi-phase-2-feature-workstreams" data-for="fusabi-phase-2-feature-workstreams">Fusabi Phase 2 Feature Workstreams</a></li><li class="depth-1"><a href="#overview" data-for="overview">Overview</a></li><li class="depth-1"><a href="#issue-organization" data-for="issue-organization">Issue Organization</a></li><li class="depth-1"><a href="#phase-2-goals" data-for="phase-2-goals">Phase 2 Goals</a></li><li class="depth-2"><a href="#success-criteria" data-for="success-criteria">Success Criteria</a></li><li class="depth-1"><a href="#milestone-breakdown" data-for="milestone-breakdown">Milestone Breakdown</a></li><li class="depth-1"><a href="#parallel-tracks-3-developers" data-for="parallel-tracks-3-developers">Parallel Tracks (3 Developers)</a></li><li class="depth-2"><a href="#track-a-frontend-extensions-dev-1" data-for="track-a-frontend-extensions-dev-1">Track A: Frontend Extensions (Dev 1)</a></li><li class="depth-2"><a href="#track-b-vm-runtime-dev-2" data-for="track-b-vm-runtime-dev-2">Track B: VM Runtime (Dev 2)</a></li><li class="depth-2"><a href="#track-c-integration--optimization-dev-3" data-for="track-c-integration--optimization-dev-3">Track C: Integration &amp; Optimization (Dev 3)</a></li><li class="depth-1"><a href="#week-by-week-timeline" data-for="week-by-week-timeline">Week-by-Week Timeline</a></li><li class="depth-2"><a href="#week-4-functions--closures" data-for="week-4-functions--closures">Week 4: Functions &amp; Closures</a></li><li class="depth-2"><a href="#week-5-data-structures" data-for="week-5-data-structures">Week 5: Data Structures</a></li><li class="depth-2"><a href="#week-6-pattern-matching" data-for="week-6-pattern-matching">Week 6: Pattern Matching</a></li><li class="depth-2"><a href="#week-7-type-system" data-for="week-7-type-system">Week 7: Type System</a></li><li class="depth-1"><a href="#parallelization-strategy" data-for="parallelization-strategy">Parallelization Strategy</a></li><li class="depth-2"><a href="#parallelizable-work-810-issues-can-parallel" data-for="parallelizable-work-810-issues-can-parallel">Parallelizable Work (8/10 issues can parallel)</a></li><li class="depth-2"><a href="#file-ownership" data-for="file-ownership">File Ownership</a></li><li class="depth-2"><a href="#conflict-prevention" data-for="conflict-prevention">Conflict Prevention</a></li><li class="depth-1"><a href="#critical-path-analysis" data-for="critical-path-analysis">Critical Path Analysis</a></li><li class="depth-2"><a href="#longest-path-24-days" data-for="longest-path-24-days">Longest Path: 24 days</a></li><li class="depth-2"><a href="#bottlenecks" data-for="bottlenecks">Bottlenecks</a></li><li class="depth-2"><a href="#mitigation-strategies" data-for="mitigation-strategies">Mitigation Strategies</a></li><li class="depth-1"><a href="#label-system" data-for="label-system">Label System</a></li><li class="depth-2"><a href="#type-labels" data-for="type-labels">Type Labels</a></li><li class="depth-2"><a href="#priority-labels" data-for="priority-labels">Priority Labels</a></li><li class="depth-2"><a href="#status-labels" data-for="status-labels">Status Labels</a></li><li class="depth-2"><a href="#phase-labels" data-for="phase-labels">Phase Labels</a></li><li class="depth-2"><a href="#component-labels" data-for="component-labels">Component Labels</a></li><li class="depth-2"><a href="#effort-labels" data-for="effort-labels">Effort Labels</a></li><li class="depth-2"><a href="#dependency-labels" data-for="dependency-labels">Dependency Labels</a></li><li class="depth-1"><a href="#development-workflow" data-for="development-workflow">Development Workflow</a></li><li class="depth-2"><a href="#branch-naming" data-for="branch-naming">Branch Naming</a></li><li class="depth-2"><a href="#commit-message-format" data-for="commit-message-format">Commit Message Format</a></li><li class="depth-2"><a href="#pr-requirements" data-for="pr-requirements">PR Requirements</a></li><li class="depth-1"><a href="#getting-started" data-for="getting-started">Getting Started</a></li><li class="depth-2"><a href="#prerequisites" data-for="prerequisites">Prerequisites</a></li><li class="depth-2"><a href="#workflow" data-for="workflow">Workflow</a></li><li class="depth-1"><a href="#common-commands" data-for="common-commands">Common Commands</a></li><li class="depth-1"><a href="#success-metrics" data-for="success-metrics">Success Metrics</a></li><li class="depth-2"><a href="#technical-metrics" data-for="technical-metrics">Technical Metrics</a></li><li class="depth-2"><a href="#quality-metrics" data-for="quality-metrics">Quality Metrics</a></li><li class="depth-2"><a href="#integration-metrics" data-for="integration-metrics">Integration Metrics</a></li><li class="depth-1"><a href="#resources" data-for="resources">Resources</a></li><li class="depth-1"><a href="#support" data-for="support">Support</a></li><li class="overflow-end"></li></ul></div></div><footer class><p>Created with <a href="https://quartz.jzhao.xyz/">Quartz v4.5.2</a> © 2025</p><ul><li><a href="https://github.com/fusabi-lang/docs">GitHub</a></li><li><a href="https://github.com/fusabi-lang">Fusabi Lang</a></li></ul></footer></div></div></body><script type="application/javascript">function n(){let t=this.parentElement;t.classList.toggle("is-collapsed");let e=t.getElementsByClassName("callout-content")[0];if(!e)return;let l=t.classList.contains("is-collapsed");e.style.gridTemplateRows=l?"0fr":"1fr"}function c(){let t=document.getElementsByClassName("callout is-collapsible");for(let e of t){let l=e.getElementsByClassName("callout-title")[0],s=e.getElementsByClassName("callout-content")[0];if(!l||!s)continue;l.addEventListener("click",n),window.addCleanup(()=>l.removeEventListener("click",n));let o=e.classList.contains("is-collapsed");s.style.gridTemplateRows=o?"0fr":"1fr"}}document.addEventListener("nav",c);
+</script><script type="module">function f(i,e){if(!i)return;function r(o){o.target===this&&(o.preventDefault(),o.stopPropagation(),e())}function t(o){o.key.startsWith("Esc")&&(o.preventDefault(),e())}i?.addEventListener("click",r),window.addCleanup(()=>i?.removeEventListener("click",r)),document.addEventListener("keydown",t),window.addCleanup(()=>document.removeEventListener("keydown",t))}function y(i){for(;i.firstChild;)i.removeChild(i.firstChild)}var h=class{constructor(e,r){this.container=e;this.content=r;this.setupEventListeners(),this.setupNavigationControls(),this.resetTransform()}isDragging=!1;startPan={x:0,y:0};currentPan={x:0,y:0};scale=1;MIN_SCALE=.5;MAX_SCALE=3;cleanups=[];setupEventListeners(){let e=this.onMouseDown.bind(this),r=this.onMouseMove.bind(this),t=this.onMouseUp.bind(this),o=this.resetTransform.bind(this);this.container.addEventListener("mousedown",e),document.addEventListener("mousemove",r),document.addEventListener("mouseup",t),window.addEventListener("resize",o),this.cleanups.push(()=>this.container.removeEventListener("mousedown",e),()=>document.removeEventListener("mousemove",r),()=>document.removeEventListener("mouseup",t),()=>window.removeEventListener("resize",o))}cleanup(){for(let e of this.cleanups)e()}setupNavigationControls(){let e=document.createElement("div");e.className="mermaid-controls";let r=this.createButton("+",()=>this.zoom(.1)),t=this.createButton("-",()=>this.zoom(-.1)),o=this.createButton("Reset",()=>this.resetTransform());e.appendChild(t),e.appendChild(o),e.appendChild(r),this.container.appendChild(e)}createButton(e,r){let t=document.createElement("button");return t.textContent=e,t.className="mermaid-control-button",t.addEventListener("click",r),window.addCleanup(()=>t.removeEventListener("click",r)),t}onMouseDown(e){e.button===0&&(this.isDragging=!0,this.startPan={x:e.clientX-this.currentPan.x,y:e.clientY-this.currentPan.y},this.container.style.cursor="grabbing")}onMouseMove(e){this.isDragging&&(e.preventDefault(),this.currentPan={x:e.clientX-this.startPan.x,y:e.clientY-this.startPan.y},this.updateTransform())}onMouseUp(){this.isDragging=!1,this.container.style.cursor="grab"}zoom(e){let r=Math.min(Math.max(this.scale+e,this.MIN_SCALE),this.MAX_SCALE),t=this.content.getBoundingClientRect(),o=t.width/2,n=t.height/2,c=r-this.scale;this.currentPan.x-=o*c,this.currentPan.y-=n*c,this.scale=r,this.updateTransform()}updateTransform(){this.content.style.transform=`translate(${this.currentPan.x}px, ${this.currentPan.y}px) scale(${this.scale})`}resetTransform(){this.scale=1;let e=this.content.querySelector("svg");this.currentPan={x:e.getBoundingClientRect().width/2,y:e.getBoundingClientRect().height/2},this.updateTransform()}},C=["--secondary","--tertiary","--gray","--light","--lightgray","--highlight","--dark","--darkgray","--codeFont"],E;document.addEventListener("nav",async()=>{let e=document.querySelector(".center").querySelectorAll("code.mermaid");if(e.length===0)return;E||=await import("https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.4.0/mermaid.esm.min.mjs");let r=E.default,t=new WeakMap;for(let n of e)t.set(n,n.innerText);async function o(){for(let s of e){s.removeAttribute("data-processed");let a=t.get(s);a&&(s.innerHTML=a)}let n=C.reduce((s,a)=>(s[a]=window.getComputedStyle(document.documentElement).getPropertyValue(a),s),{}),c=document.documentElement.getAttribute("saved-theme")==="dark";r.initialize({startOnLoad:!1,securityLevel:"loose",theme:c?"dark":"base",themeVariables:{fontFamily:n["--codeFont"],primaryColor:n["--light"],primaryTextColor:n["--darkgray"],primaryBorderColor:n["--tertiary"],lineColor:n["--darkgray"],secondaryColor:n["--secondary"],tertiaryColor:n["--tertiary"],clusterBkg:n["--light"],edgeLabelBackground:n["--highlight"]}}),await r.run({nodes:e})}await o(),document.addEventListener("themechange",o),window.addCleanup(()=>document.removeEventListener("themechange",o));for(let n=0;n<e.length;n++){let v=function(){let g=l.querySelector("#mermaid-space"),m=l.querySelector(".mermaid-content");if(!m)return;y(m);let w=c.querySelector("svg").cloneNode(!0);m.appendChild(w),l.classList.add("active"),g.style.cursor="grab",u=new h(g,m)},M=function(){l.classList.remove("active"),u?.cleanup(),u=null},c=e[n],s=c.parentElement,a=s.querySelector(".clipboard-button"),d=s.querySelector(".expand-button"),p=window.getComputedStyle(a),L=a.offsetWidth+parseFloat(p.marginLeft||"0")+parseFloat(p.marginRight||"0");d.style.right=`calc(${L}px + 0.3rem)`,s.prepend(d);let l=s.querySelector("#mermaid-container");if(!l)return;let u=null;d.addEventListener("click",v),f(l,M),window.addCleanup(()=>{u?.cleanup(),d.removeEventListener("click",v)})}});
+</script><script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/copy-tex.min.js" type="application/javascript"></script><script src="../../../../../postscript.js" type="module"></script></html>

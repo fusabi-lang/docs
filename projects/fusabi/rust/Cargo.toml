@@ -1,0 +1,7 @@
+[workspace]
+members = [
+  "crates/fusabi-frontend",
+  "crates/fusabi-vm",
+  "crates/fusabi",
+]
+resolver = "2"

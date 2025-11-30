@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+    <channel>
+      <title>Fusabi Lang Documentation</title>
+      <link>https://fusabi-lang.github.io/docs</link>
+      <description>Last 10 notes on Fusabi Lang Documentation</description>
+      <generator>Quartz -- quartz.jzhao.xyz</generator>
+      <item>
+    <title>Projects</title>
+    <link>https://fusabi-lang.github.io/docs/projects/</link>
+    <guid>https://fusabi-lang.github.io/docs/projects/</guid>
+    <description><![CDATA[ Overview of all fusabi-lang projects ]]></description>
+    <pubDate>Sun, 30 Nov 2025 03:25:36 GMT</pubDate>
+  </item><item>
+    <title>FUSABI_BINDINGS</title>
+    <link>https://fusabi-lang.github.io/docs/projects/fusabi-tui/docs/FUSABI_BINDINGS</link>
+    <guid>https://fusabi-lang.github.io/docs/projects/fusabi-tui/docs/FUSABI_BINDINGS</guid>
+    <description><![CDATA[ Fusabi TUI Bindings Documentation Overview The Fusabi TUI bindings enable F# scripts to use terminal UI components by exposing: Formatting functions - Pure functions for human-readable data formatting Widget specification builders - Functions to create JSON-serializable widget configurations Limitat... ]]></description>
+    <pubDate>Sun, 30 Nov 2025 03:25:20 GMT</pubDate>
+  </item><item>
+    <title>README</title>
+    <link>https://fusabi-lang.github.io/docs/projects/fusabi-tui/examples/README</link>
+    <guid>https://fusabi-lang.github.io/docs/projects/fusabi-tui/examples/README</guid>
+    <description><![CDATA[ Fusabi TUI Examples This directory contains example F# scripts demonstrating the Fusabi TUI bindings. ]]></description>
+    <pubDate>Sun, 30 Nov 2025 03:25:20 GMT</pubDate>
+  </item><item>
+    <title>ARCHITECTURE</title>
+    <link>https://fusabi-lang.github.io/docs/projects/fusabi-tui/ARCHITECTURE</link>
+    <guid>https://fusabi-lang.github.io/docs/projects/fusabi-tui/ARCHITECTURE</guid>
+    <description><![CDATA[ Fusabi TUI - Architecture Technical architecture and design decisions for the fusabi-tui library Created: 2025-01-26 Status: Repository scaffold complete, implementation pending Overview fusabi-tui is a Rust library that bridges Ratatui (terminal UI framework) with Fusabi (F# scripting runtime). ]]></description>
+    <pubDate>Sun, 30 Nov 2025 03:25:20 GMT</pubDate>
+  </item><item>
+    <title>IMPLEMENTATION_SUMMARY</title>
+    <link>https://fusabi-lang.github.io/docs/projects/fusabi-tui/IMPLEMENTATION_SUMMARY</link>
+    <guid>https://fusabi-lang.github.io/docs/projects/fusabi-tui/IMPLEMENTATION_SUMMARY</guid>
+    <description><![CDATA[ Fusabi TUI Bindings - Implementation Summary Overview This document summarizes the Fusabi bindings implementation for the fusabi-tui library, completed on 2025-11-26. ]]></description>
+    <pubDate>Sun, 30 Nov 2025 03:25:20 GMT</pubDate>
+  </item><item>
+    <title>README</title>
+    <link>https://fusabi-lang.github.io/docs/projects/fusabi-tui/README</link>
+    <guid>https://fusabi-lang.github.io/docs/projects/fusabi-tui/README</guid>
+    <description><![CDATA[ Fusabi TUI Terminal UI library for Fusabi - providing Ratatui bindings and widgets Overview fusabi-tui is a Rust library that exposes the powerful Ratatui terminal UI framework to Fusabi scripts (F# for configuration). ]]></description>
+    <pubDate>Sun, 30 Nov 2025 03:25:20 GMT</pubDate>
+  </item><item>
+    <title>SETUP_SUMMARY</title>
+    <link>https://fusabi-lang.github.io/docs/projects/fusabi-tui/SETUP_SUMMARY</link>
+    <guid>https://fusabi-lang.github.io/docs/projects/fusabi-tui/SETUP_SUMMARY</guid>
+    <description><![CDATA[ Fusabi TUI - Repository Setup Summary Created: 2025-01-26 Status: Scaffold complete, ready for implementation Repository Created Location: /home/beengud/raibid-labs/fusabi-tui/ Structure Overview fusabi-tui/ ├── .git/ # Git repository (initialized) ├── .gitignore # Rust-specific ignore patterns ├── ... ]]></description>
+    <pubDate>Sun, 30 Nov 2025 03:25:20 GMT</pubDate>
+  </item><item>
+    <title>PHASE3_CYCLE2_REPORT</title>
+    <link>https://fusabi-lang.github.io/docs/projects/fusabi/rust/docs/PHASE3_CYCLE2_REPORT</link>
+    <guid>https://fusabi-lang.github.io/docs/projects/fusabi/rust/docs/PHASE3_CYCLE2_REPORT</guid>
+    <description><![CDATA[ Phase 3 Cycle 2 Report - Module Parser + Standard Library Date: 2025-11-19 Status: ✅ COMPLETE Cycle: Parallel Orchestration (2 agents) Executive Summary Successfully completed Cycle 2 of Phase 3 using parallel meta-orchestration. ]]></description>
+    <pubDate>Sun, 30 Nov 2025 03:25:20 GMT</pubDate>
+  </item><item>
+    <title>PHASE3_CYCLE3_REPORT</title>
+    <link>https://fusabi-lang.github.io/docs/projects/fusabi/rust/docs/PHASE3_CYCLE3_REPORT</link>
+    <guid>https://fusabi-lang.github.io/docs/projects/fusabi/rust/docs/PHASE3_CYCLE3_REPORT</guid>
+    <description><![CDATA[ Phase 3 Cycle 3 Report - Compiler Module Integration + Host Interop API Date: 2025-11-19 Status: ✅ COMPLETE Cycle: Parallel Orchestration (2 agents) Executive Summary Successfully completed Cycle 3 of Phase 3 using parallel meta-orchestration. ]]></description>
+    <pubDate>Sun, 30 Nov 2025 03:25:20 GMT</pubDate>
+  </item><item>
+    <title>PHASE3_PROGRESS_REPORT</title>
+    <link>https://fusabi-lang.github.io/docs/projects/fusabi/rust/docs/PHASE3_PROGRESS_REPORT</link>
+    <guid>https://fusabi-lang.github.io/docs/projects/fusabi/rust/docs/PHASE3_PROGRESS_REPORT</guid>
+    <description><![CDATA[ Phase 3 Progress Report - Parallel Orchestration Cycle 1 Date: 2025-11-19 Status: ✅ COMPLETE Cycle: Parallel Orchestration (2 agents) Executive Summary Successfully completed Cycle 1 of Phase 3 using parallel meta-orchestration. ]]></description>
+    <pubDate>Sun, 30 Nov 2025 03:25:20 GMT</pubDate>
+  </item>
+    </channel>
+  </rss>
