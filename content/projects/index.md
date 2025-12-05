@@ -11,6 +11,7 @@ This section contains documentation aggregated from all active fusabi-lang repos
 ## Active Projects
 
 - [[fusabi/index|Fusabi]]
+- [[fusabi-host/index|Fusabi host]]
 - [[fusabi-tui/index|Fusabi tui]]
 
 ## Navigation
@@ -21,7 +22,7 @@ Use the sidebar to browse project documentation, or use the search feature to fi
 
 This documentation hub automatically aggregates content from all public fusabi-lang repositories. Each project maintains its own documentation in its respective repository, and changes are synchronized daily.
 
-**Last Updated**: 2025-12-04 03:17:59
+**Last Updated**: 2025-12-05 03:17:56
 
 ---
 
