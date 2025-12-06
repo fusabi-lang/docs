@@ -10,3 +10,23 @@
 	path = content/projects/fusabi-host
 	url = https://github.com/fusabi-lang/fusabi-host.git
 	sparse-checkout = docs/*
+[submodule "content/projects/blog"]
+	path = content/projects/blog
+	url = https://github.com/fusabi-lang/blog.git
+	sparse-checkout = docs/*
+[submodule "content/projects/bevy-fusabi"]
+	path = content/projects/bevy-fusabi
+	url = https://github.com/fusabi-lang/bevy-fusabi.git
+	sparse-checkout = docs/*
+[submodule "content/projects/fusabi-community"]
+	path = content/projects/fusabi-community
+	url = https://github.com/fusabi-lang/fusabi-community.git
+	sparse-checkout = docs/*
+[submodule "content/projects/fusabi-stdlib-ext"]
+	path = content/projects/fusabi-stdlib-ext
+	url = https://github.com/fusabi-lang/fusabi-stdlib-ext.git
+	sparse-checkout = docs/*
+[submodule "content/projects/fusabi-plugin-runtime"]
+	path = content/projects/fusabi-plugin-runtime
+	url = https://github.com/fusabi-lang/fusabi-plugin-runtime.git
+	sparse-checkout = docs/*

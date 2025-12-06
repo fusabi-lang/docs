@@ -10,8 +10,13 @@ This section contains documentation aggregated from all active fusabi-lang repos
 
 ## Active Projects
 
+- [[bevy-fusabi/index|Bevy fusabi]]
+- [[blog/index|Blog]]
 - [[fusabi/index|Fusabi]]
+- [[fusabi-community/index|Fusabi community]]
 - [[fusabi-host/index|Fusabi host]]
+- [[fusabi-plugin-runtime/index|Fusabi plugin-runtime]]
+- [[fusabi-stdlib-ext/index|Fusabi stdlib-ext]]
 - [[fusabi-tui/index|Fusabi tui]]
 
 ## Navigation
@@ -22,7 +27,7 @@ Use the sidebar to browse project documentation, or use the search feature to fi
 
 This documentation hub automatically aggregates content from all public fusabi-lang repositories. Each project maintains its own documentation in its respective repository, and changes are synchronized daily.
 
-**Last Updated**: 2025-12-05 03:17:56
+**Last Updated**: 2025-12-06 03:08:20
 
 ---
 
