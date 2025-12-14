@@ -1,0 +1,32 @@
+[package]
+name = "bevy-fusabi"
+version = "0.1.4"
+edition = "2021"
+authors = ["Aaron Brewbaker <brewbaker.aaron@gmail.com>"]
+description = "Bevy integration for the Fusabi scripting language"
+documentation = "https://docs.rs/bevy-fusabi"
+homepage = "https://github.com/fusabi-lang/bevy-fusabi"
+repository = "https://github.com/fusabi-lang/bevy-fusabi"
+license = "MIT OR Apache-2.0"
+keywords = ["bevy", "fusabi", "scripting", "gamedev", "plugin"]
+categories = ["game-engines", "game-development"]
+readme = "README.md"
+rust-version = "1.75"
+
+[dependencies]
+# Core Bevy
+bevy = { version = "0.15", default-features = false, features = ["bevy_asset"] }
+
+# Fusabi Runtime & Compiler
+fusabi-vm = { version = "0.17.0", features = ["serde"] }
+fusabi-frontend = "0.17.0"
+
+# Utilities
+thiserror = "1.0"
+anyhow = "1.0"
+serde = { version = "1.0", features = ["derive"] }
+tracing = "0.1"
+
+[dev-dependencies]
+
+bevy = { version = "0.15", default-features = false, features = ["bevy_asset", "multi_threaded"] }
