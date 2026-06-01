@@ -2,10 +2,6 @@
 	path = content/projects/fusabi
 	url = https://github.com/fusabi-lang/fusabi.git
 	sparse-checkout = docs/*
-[submodule "content/projects/fusabi-tui"]
-	path = content/projects/fusabi-tui
-	url = https://github.com/fusabi-lang/fusabi-tui.git
-	sparse-checkout = docs/*
 [submodule "content/projects/fusabi-host"]
 	path = content/projects/fusabi-host
 	url = https://github.com/fusabi-lang/fusabi-host.git
